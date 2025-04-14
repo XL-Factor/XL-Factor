@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="XL-Factor Terms of Service - Legal agreement for using our Excel tools and services">
+    <meta name="keywords" content="Excel tools terms, terms of service, legal agreement, Excel conversion terms">
+    <title>Terms of Service | XL-Factor - Smart Excel Tools</title>
+    <style>
+        /* Base styles matching Disclaimer page */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links a.active {
+            background-color: #ff9800;
+        }
+
+        .nav-links a.active:hover {
+            background-color: #e68900;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Terms Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .terms-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #ff9800;
+        }
+
+        .terms-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .terms-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .terms-text h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: #ff9800;
+        }
+
+        .terms-text h3 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.8rem;
+            color: #ffcc80;
+        }
+
+        .terms-text p,
+        .terms-text ul {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #ddd;
+        }
+
+        .terms-text ul {
+            padding-left: 1.5rem;
+        }
+
+        .terms-text li {
+            margin-bottom: 0.5rem;
+        }
+
+        .terms-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            position: sticky;
+            top: 120px;
+        }
+
+        .terms-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .terms-image img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slogan {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .credit {
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .nav-links a {
+                width: 80%;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .terms-content {
+                flex-direction: column;
+            }
+
+            .terms-image {
+                position: static;
+                order: -1;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transition: 1s all ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">XL-Factor</a>
+                <ul class="nav-links">
+                    <li><a href="file:///C:/Users/Lenovo/Desktop/GIT/HOME%20PAGE/INDEX.html">Home</a></li>
+                    <li><a href="file:///C:/Users/Lenovo/Desktop/GIT/HOME%20PAGE/About-Us.html">About Us</a></li>
+                    <li><a href="file:///C:/Users/Lenovo/Desktop/GIT/HOME%20PAGE/Tools.html">Tools</a></li>
+                    <li><a href="file:///C:/Users/Lenovo/Desktop/GIT/HOME%20PAGE/Disclaimer.html">Disclaimer</a></li>
+                    <li><a href="file:///C:/Users/Lenovo/Desktop/GIT/HOME%20PAGE/Privacy-Policy.html">Privacy Policy</a></li>
+                    <li><a href="file:///C:/Users/Lenovo/Desktop/GIT/HOME%20PAGE/Terms-of-Service.html" class="active">Terms of Service</a></li>
+                    <li><a href="file:///C:/Users/Lenovo/Desktop/GIT/HOME%20PAGE/Contact-Us.html">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="terms-section reveal">
+                <h1 class="section-title">Terms of Service</h1>
+                <div class="terms-content">
+                    <div class="terms-text">
+                        <h2>1. Acceptance of Terms</h2>
+                        <p>By accessing or using XL-Factor ("we," "us," or "our"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to all terms, you may not use our services.</p>
+
+                        <h3>1.1 Eligibility</h3>
+                        <p>You must be at least 18 years old or use our services under parental supervision.</p>
+
+                        <h3>1.2 Modifications</h3>
+                        <p>We reserve the right to modify these Terms at any time. Continued use constitutes acceptance.</p>
+
+                        <h2>2. Description of Services</h2>
+                        <p>XL-Factor provides free web-based tools for Excel data conversion and processing including:</p>
+                        <ul>
+                            <li>File format conversions (CSV, PDF, JSON, etc.)</li>
+                            <li>Data processing (sorting, filtering, merging)</li>
+                            <li>Automation and formatting tools</li>
+                        </ul>
+
+                        <h2>3. User Obligations & Restrictions</h2>
+                        <h3>3.1 Permitted Use</h3>
+                        <p>You may use our services for:</p>
+                        <ul>
+                            <li>Personal, non-commercial purposes</li>
+                            <li>Legitimate business needs</li>
+                            <li>Educational purposes</li>
+                        </ul>
+
+                        <h3>3.2 Prohibited Activities</h3>
+                        <p>You must not:</p>
+                        <ul>
+                            <li>Upload malware, viruses, or harmful code</li>
+                            <li>Process sensitive, confidential, or illegal data</li>
+                            <li>Scrape, hack, or reverse-engineer our tools</li>
+                            <li>Use our services for spam or fraudulent activities</li>
+                            <li>Overload our servers with excessive requests</li>
+                        </ul>
+
+                        <h2>4. Intellectual Property Rights</h2>
+                        <h3>4.1 Ownership</h3>
+                        <p>All software, algorithms, logos, and content on XL-Factor are our exclusive property unless stated otherwise.</p>
+
+                        <h3>4.2 User-Generated Content</h3>
+                        <p>By uploading files, you grant us a limited, non-exclusive license to process data solely for tool functionality.</p>
+
+                        <h2>5. Privacy & Data Security</h2>
+                        <p>Our <a href="file:///C:/Users/Lenovo/Desktop/GIT/HOME%20PAGE/Privacy%20Policy.html">Privacy Policy</a> governs data collection and protection.</p>
+                        <ul>
+                            <li>Files are temporarily cached for processing</li>
+                            <li>Data is automatically deleted after conversion</li>
+                            <li>Avoid uploading highly sensitive information</li>
+                        </ul>
+
+                        <h2>6. Disclaimers & Limitations</h2>
+                        <h3>6.1 No Warranty</h3>
+                        <p>Services are provided "as-is" without guarantees of accuracy or reliability.</p>
+
+                        <h3>6.2 Limitation of Liability</h3>
+                        <p>XL-Factor shall not be liable for:</p>
+                        <ul>
+                            <li>Data loss or corruption</li>
+                            <li>Financial losses from tool usage</li>
+                            <li>Service interruptions</li>
+                            <li>Third-party actions</li>
+                        </ul>
+
+                        <h2>7. Termination</h2>
+                        <p>We may suspend or terminate access for violations without notice.</p>
+
+                        <h2>8. Governing Law</h2>
+                        <p>These Terms shall be governed by the laws of India, with exclusive jurisdiction vested in the courts of Maharashtra State.</p>
+
+                        <h2>9. Contact Information</h2>
+                        <p>For questions regarding these Terms, contact us at:</p>
+                        <ul>
+                            <li><strong>Email:</strong> xl.factors@gmail.com</li>
+                        </ul>
+                    </div>
+                    <div class="terms-image">
+                        <img src="C:\Users\Lenovo\Desktop\GIT\HOME PAGE\ImageData\Terms_Img.JPG" alt="Terms of Service Visual">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="slogan">Excel at speed with our powerful, free tools while understanding your rights and responsibilities.</p>
+                <p class="credit">@ 2025 XL-Factor | Last Updated: April 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveals[i].getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
