@@ -883,33 +883,26 @@
 
                         const sheetName = workbook.SheetNames[0];
                         const worksheet = workbook.Sheets[sheetName];
-                        const html = XLSX.utils.sheet_to_html(worksheet);
+                        const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
-                        // Create temporary div to parse HTML table
-                        const tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = html;
-                        const table = tempDiv.querySelector('table');
-
-                        if (!table) {
-                            reject(new Error('No table found in Excel sheet'));
+                        if (!jsonData.length) {
+                            reject(new Error('No data found in sheet'));
                             return;
                         }
 
-                        // Initialize PDF
                         const doc = new jsPDF({
                             orientation: options.orientation,
                             unit: 'mm',
                             format: options.pageSize
                         });
 
-                        // Add title
                         const title = file.name.replace(/\.xlsx?$/i, '');
                         doc.setFontSize(14);
-                        doc.text(title, options.marginSize, options.marginSize - 5);
+                        doc.text(title, options.marginSize, options.marginSize - 2);
 
-                        // Add table
                         doc.autoTable({
-                            html: table,
+                            head: [jsonData[0]],
+                            body: jsonData.slice(1),
                             startY: options.marginSize,
                             margin: {
                                 top: options.marginSize,
@@ -917,15 +910,14 @@
                                 bottom: options.marginSize,
                                 left: options.marginSize
                             },
-                            tableWidth: options.scaleType === 'fit' ? 'wrap' : 'auto',
                             styles: {
                                 fontSize: 8,
                                 cellPadding: 2,
                                 overflow: 'linebreak'
-                            }
+                            },
+                            tableWidth: options.scaleType === 'fit' ? 'wrap' : 'auto'
                         });
 
-                        // Create blob
                         const pdfBlob = doc.output('blob');
                         resolve(pdfBlob);
                     } catch (error) {
