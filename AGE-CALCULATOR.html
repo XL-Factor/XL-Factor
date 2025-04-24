@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AGE Calculator - Calculate your exact age and get detailed life statistics">
+    <meta name="keywords" content="age calculator, life stats, birthday calculator, zodiac sign, life milestones">
+    <title>AGE Calculator | XL-Factor</title>
+    <style>
+        /* Base styles matching PDF-to-Excel-Converter.html */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links a.active {
+            background-color: #ff9800;
+        }
+
+        .nav-links a.active:hover {
+            background-color: #e68900;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .tool-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #ff9800;
+        }
+
+        /* Calculator Tool Styles */
+        .calculator-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .calculator-box {
+            flex: 2;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #ff9800;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, #ff9800, #ff5722);
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        .life-progress {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .life-progress-bar {
+            width: 100%;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            margin: 1rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .life-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, #4CAF50, #8BC34A);
+            border-radius: 15px;
+            transition: width 1s ease;
+        }
+
+        .life-progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .results-container {
+            margin-top: 2rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-card h3 {
+            margin-top: 0;
+            color: #ffcc80;
+            font-size: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .result-card p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .result-card .highlight {
+            font-weight: bold;
+            color: #ff9800;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: transparent;
+            color: white;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .loading {
+            position: relative;
+            pointer-events: none;
+        }
+        .loading:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Help Section */
+        .help-section {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-container {
+            margin-top: 1rem;
+        }
+
+        .tab-buttons {
+            display: flex;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 1rem;
+        }
+
+        .tab-btn {
+            padding: 10px 15px;
+            background: transparent;
+            border: none;
+            color: #ddd;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: #ff9800;
+        }
+
+        .tab-btn.active:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ff9800;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 10px 0;
+            color: #ddd;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: #ffcc80;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .faq-answer.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .video-link {
+            display: block;
+            margin-top: 1rem;
+            color: #ff9800;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .video-link:hover {
+            color: #e68900;
+            text-decoration: underline;
+        }
+
+        .video-icon {
+            margin-right: 5px;
+        }
+
+        /* Ad Container */
+        .ad-container {
+            width: 94%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .ad-placeholder {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 50px 20px;
+            border-radius: 5px;
+            color: #ddd;
+            font-style: italic;
+            margin: 0 auto;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slogan {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .credit {
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .nav-links a {
+                width: 80%;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .calculator-container {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transition: 1s all ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">XL-Factor</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About-Us.html">About Us</a></li>
+                    <li><a href="Tools.html">Tools</a></li>
+                    <li><a href="Disclaimer.html">Disclaimer</a></li>
+                    <li><a href="Privacy-Policy.html">Privacy Policy</a></li>
+                    <li><a href="Terms-of-Service.html">Terms of Service</a></li>
+                    <li><a href="Contact-Us.html">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="tool-section reveal">
+                <h1 class="section-title">AGE Calculator</h1>
+                <p style="text-align: center; margin-bottom: 2rem;">Calculate your exact age and get detailed life statistics, zodiac signs, and fun facts about your life journey.</p>
+
+                <div class="calculator-container">
+                    <div class="calculator-box">
+                        <div class="ad-container">
+                            <div class="ad-placeholder">AdMob Advertisement Space</div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="birthDate">Your Birth Date</label>
+                            <input type="date" id="birthDate" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="birthTime">Your Birth Time (optional)</label>
+                            <input type="time" id="birthTime">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="compareDate">Compare Date (optional)</label>
+                            <input type="date" id="compareDate">
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn" id="calculateBtn">Calculate My Age</button>
+                            <button class="btn" id="downloadExcelBtn" disabled>Download Excel Report</button>
+                            <button class="btn" id="resetBtn">Reset</button>
+                        </div>
+
+                        <div class="progress-container" id="progressContainer">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+
+                        <div class="life-progress" id="lifeProgress" style="display: none;">
+                            <h3>Your Life Progress</h3>
+                            <div class="life-progress-bar">
+                                <div class="life-progress-fill" id="lifeProgressFill"></div>
+                                <div class="life-progress-text" id="lifeProgressText">0%</div>
+                            </div>
+                            <p>Based on an average lifespan of 80 years</p>
+                        </div>
+
+                        <div class="results-container" id="resultsContainer" style="display: none;">
+                            <h3>Your Age Statistics</h3>
+                            <div class="results-grid" id="resultsGrid"></div>
+                        </div>
+
+                        <div class="ad-container">
+                            <div class="ad-placeholder">AdMob Advertisement Space</div>
+                        </div>
+                    </div>
+
+                    <div class="help-section">
+                        <h2>How to Use This Tool</h2>
+                        <div class="tab-container">
+                            <div class="tab-buttons">
+                                <button class="tab-btn active" data-tab="instructions">Instructions</button>
+                                <button class="tab-btn" data-tab="faq">FAQ</button>
+                                <button class="tab-btn" data-tab="resources">Video</button>
+                            </div>
+
+                            <div class="tab-content active" id="instructions">
+                                <p>1. Enter your birth date (required)</p>
+                                <p>2. Optionally enter your birth time for more precise calculations</p>
+                                <p>3. Optionally select a compare date to see your age on that date</p>
+                                <p>4. Click "Calculate My Age" to see detailed statistics</p>
+                                <p>5. Click "Download Excel Report" to save all your age data</p>
+                                <p>6. Use "Reset" to clear all fields and start over</p>
+                            </div>
+
+                            <div class="tab-content" id="faq">
+                                <div class="faq-item">
+                                    <div class="faq-question">Why is birth time optional?<span>+</span></div>
+                                    <div class="faq-answer">Birth time is used for more precise calculations (hours, minutes, seconds). If not provided, we'll use midnight (00:00) as the default.</div>
+                                </div>
+
+                                <div class="faq-item">
+                                    <div class="faq-question">What is the compare date for?<span>+</span></div>
+                                    <div class="faq-answer">The compare date lets you see how old you were/will be on any specific date in the past or future.</div>
+                                </div>
+
+                                <div class="faq-item">
+                                    <div class="faq-question">How accurate are the planet age calculations?<span>+</span></div>
+                                    <div class="faq-answer">Planetary ages are based on their orbital periods around the Sun. These are approximate as orbits aren't perfectly circular.</div>
+                                </div>
+
+                                <div class="faq-item">
+                                    <div class="faq-question">Where does the life expectancy data come from?<span>+</span></div>
+                                    <div class="faq-answer">We use the global average life expectancy of 72.6 years (World Bank data), but the progress bar is based on 80 years for a more optimistic view.</div>
+                                </div>
+                            </div>
+
+                            <div class="tab-content" id="resources">
+                                <p>Learn more about age calculation and life statistics:</p>
+                                <a href="https://www.youtube.com/watch?v=xxxxxx" class="video-link" target="_blank">
+                                    <span class="video-icon">?</span> Understanding Age Calculation
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="slogan">Discover fascinating insights about your life journey and age milestones.</p>
+                <p class="credit">@ 2025 Designed by XL-Factor</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include SheetJS for Excel creation -->
+    <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
+
+    <!-- Include Chart.js for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- ... (keep all the HTML and CSS the same until the script section) ... -->
+
+	<script>
+	    // Mobile Navigation Toggle
+	    const hamburger = document.querySelector('.hamburger');
+	    const navLinks = document.querySelector('.nav-links');
+
+	    hamburger.addEventListener('click', () => {
+	        navLinks.classList.toggle('active');
+	    });
+
+	    // Close mobile menu when clicking on a link
+	    document.querySelectorAll('.nav-links a').forEach(link => {
+	        link.addEventListener('click', () => {
+	            navLinks.classList.remove('active');
+	        });
+	    });
+
+	    // Tab functionality
+	    const tabBtns = document.querySelectorAll('.tab-btn');
+	    tabBtns.forEach(btn => {
+	        btn.addEventListener('click', () => {
+	            const tabId = btn.getAttribute('data-tab');
+
+	            // Remove active class from all buttons and contents
+	            tabBtns.forEach(b => b.classList.remove('active'));
+	            document.querySelectorAll('.tab-content').forEach(content => {
+	                content.classList.remove('active');
+	            });
+
+	            // Add active class to clicked button and corresponding content
+	            btn.classList.add('active');
+	            document.getElementById(tabId).classList.add('active');
+	        });
+	    });
+
+	    // FAQ functionality
+	    const faqQuestions = document.querySelectorAll('.faq-question');
+	    faqQuestions.forEach(question => {
+	        question.addEventListener('click', () => {
+	            const answer = question.nextElementSibling;
+	            const isOpen = answer.classList.contains('show');
+
+	            // Close all answers first
+	            document.querySelectorAll('.faq-answer').forEach(ans => {
+	                ans.classList.remove('show');
+	                ans.previousElementSibling.querySelector('span').textContent = '+';
+	            });
+
+	            // Toggle current answer if it wasn't open
+	            if (!isOpen) {
+	                answer.classList.add('show');
+	                question.querySelector('span').textContent = '-';
+	            }
+	        });
+	    });
+
+	    // DOM Elements
+	    const birthDateInput = document.getElementById('birthDate');
+	    const birthTimeInput = document.getElementById('birthTime');
+	    const compareDateInput = document.getElementById('compareDate');
+	    const calculateBtn = document.getElementById('calculateBtn');
+	    const downloadExcelBtn = document.getElementById('downloadExcelBtn');
+	    const resetBtn = document.getElementById('resetBtn');
+	    const progressContainer = document.getElementById('progressContainer');
+	    const progressBar = document.getElementById('progressBar');
+	    const lifeProgress = document.getElementById('lifeProgress');
+	    const lifeProgressFill = document.getElementById('lifeProgressFill');
+	    const lifeProgressText = document.getElementById('lifeProgressText');
+	    const resultsContainer = document.getElementById('resultsContainer');
+	    const resultsGrid = document.getElementById('resultsGrid');
+
+	    // Set default birth date to 25 years ago
+	    const defaultBirthDate = new Date();
+	    defaultBirthDate.setFullYear(defaultBirthDate.getFullYear() - 25);
+	    birthDateInput.valueAsDate = defaultBirthDate;
+
+	    // Set compare date to today
+	    compareDateInput.valueAsDate = new Date();
+
+	    // Event Listeners
+	    calculateBtn.addEventListener('click', calculateAge);
+	    downloadExcelBtn.addEventListener('click', downloadExcelReport);
+	    resetBtn.addEventListener('click', resetCalculator);
+
+	    // Age calculation function
+	    function calculateAge() {
+	        const birthDate = new Date(birthDateInput.value);
+
+	        if (!birthDateInput.value) {
+	            alert('Please enter your birth date');
+	            return;
+	        }
+
+	        // Set default time to midnight if not provided
+	        if (birthTimeInput.value) {
+	            const [hours, minutes] = birthTimeInput.value.split(':');
+	            birthDate.setHours(parseInt(hours), parseInt(minutes));
+	        }
+
+	        const compareDate = compareDateInput.value ? new Date(compareDateInput.value) : new Date();
+
+	        // Show progress
+	        progressContainer.style.display = 'block';
+	        progressBar.style.width = '0%';
+	        calculateBtn.disabled = true;
+	        calculateBtn.classList.add('loading');
+
+	        // Simulate processing with progress updates
+	        simulateProgress(() => {
+	            // Calculate age
+	            const ageData = getAgeData(birthDate, compareDate);
+
+	            // Display results
+	            displayResults(ageData);
+
+	            // Enable download button
+	            downloadExcelBtn.disabled = false;
+
+	            // Hide progress bar
+	            setTimeout(() => {
+	                progressContainer.style.display = 'none';
+	                calculateBtn.disabled = false;
+	                calculateBtn.classList.remove('loading');
+	            }, 500);
+	        });
+	    }
+
+	    function simulateProgress(callback) {
+	        let progress = 0;
+	        const interval = setInterval(() => {
+	            progress += 5;
+	            progressBar.style.width = `${progress}%`;
+
+	            if (progress >= 100) {
+	                clearInterval(interval);
+	                callback();
+	            }
+	        }, 100);
+	    }
+
+	    function getAgeData(birthDate, compareDate) {
+	        // Ensure compare date is after birth date
+	        if (compareDate < birthDate) {
+	            const temp = compareDate;
+	            compareDate = birthDate;
+	            birthDate = temp;
+	        }
+
+	        // Calculate time differences in milliseconds
+	        const diffMs = compareDate - birthDate;
+
+	        // Core age calculations
+	        const ageInYears = diffMs / (1000 * 60 * 60 * 24 * 365.25);
+	        const ageInMonths = ageInYears * 12;
+	        const ageInDays = diffMs / (1000 * 60 * 60 * 24);
+	        const ageInHours = diffMs / (1000 * 60 * 60);
+	        const ageInMinutes = diffMs / (1000 * 60);
+	        const ageInSeconds = diffMs / 1000;
+
+	        // Breakdown of years, months, days
+	        let years = Math.floor(ageInYears);
+	        let remainingMs = compareDate - new Date(birthDate);
+	        remainingMs -= years * 365.25 * 24 * 60 * 60 * 1000;
+
+	        let months = Math.floor(remainingMs / (30.44 * 24 * 60 * 60 * 1000));
+	        remainingMs -= months * 30.44 * 24 * 60 * 60 * 1000;
+
+	        let days = Math.floor(remainingMs / (24 * 60 * 60 * 1000));
+	        remainingMs -= days * 24 * 60 * 60 * 1000;
+
+	        let hours = Math.floor(remainingMs / (60 * 60 * 1000));
+	        remainingMs -= hours * 60 * 60 * 1000;
+
+	        let minutes = Math.floor(remainingMs / (60 * 1000));
+	        remainingMs -= minutes * 60 * 1000;
+
+	        let seconds = Math.floor(remainingMs / 1000);
+
+	        // Life progress (based on 80 years)
+	        const lifeProgressPercent = Math.min(100, (ageInYears / 80) * 100);
+
+	        // Zodiac signs
+	        const westernZodiac = getWesternZodiac(birthDate);
+	        const chineseZodiac = getChineseZodiac(birthDate.getFullYear());
+
+	        // Day of week born
+	        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	        const dayOfWeekBorn = daysOfWeek[birthDate.getDay()];
+
+	        // Leap years lived
+	        const leapYears = countLeapYears(birthDate.getFullYear(), compareDate.getFullYear());
+
+	        // Age on different planets (orbital periods in Earth years)
+	        const planetaryAges = {
+	            'Mercury': ageInYears / 0.2408467,
+	            'Venus': ageInYears / 0.61519726,
+	            'Mars': ageInYears / 1.8808158,
+	            'Jupiter': ageInYears / 11.862615,
+	            'Saturn': ageInYears / 29.447498,
+	            'Uranus': ageInYears / 84.016846,
+	            'Neptune': ageInYears / 164.79132
+	        };
+
+	        // Time until next birthday
+	        const nextBirthday = new Date(compareDate);
+	        nextBirthday.setFullYear(birthDate.getFullYear() + Math.floor(ageInYears) + 1);
+	        nextBirthday.setMonth(birthDate.getMonth());
+	        nextBirthday.setDate(birthDate.getDate());
+
+	        // If birthday already passed this year, set to next year
+	        if (nextBirthday < compareDate) {
+	            nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
+	        }
+
+	        const timeUntilNextBirthdayMs = nextBirthday - compareDate;
+	        const monthsUntilBirthday = Math.floor(timeUntilNextBirthdayMs / (30.44 * 24 * 60 * 60 * 1000));
+	        const daysUntilBirthday = Math.floor((timeUntilNextBirthdayMs % (30.44 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000));
+
+	        // Next 5 birthdays days of week
+	        const nextBirthdays = [];
+	        for (let i = 1; i <= 5; i++) {
+	            const bday = new Date(birthDate);
+	            bday.setFullYear(compareDate.getFullYear() + i);
+	            nextBirthdays.push({
+	                year: bday.getFullYear(),
+	                day: daysOfWeek[bday.getDay()]
+	            });
+	        }
+
+	        // Age milestones
+	        const milestones = [
+	            { name: '1,000 days', days: 1000, passed: ageInDays >= 1000 },
+	            { name: '10,000 hours', hours: 10000, passed: ageInHours >= 10000 },
+	            { name: '100,000 minutes', minutes: 100000, passed: ageInMinutes >= 100000 },
+	            { name: '1 million seconds', seconds: 1000000, passed: ageInSeconds >= 1000000 },
+	            { name: '1 billion seconds', seconds: 1000000000, passed: ageInSeconds >= 1000000000 }
+	        ];
+
+	        // Upcoming milestones
+	        const upcomingMilestones = milestones.filter(m => !m.passed);
+
+	        // Health and wellness estimates
+	        const sleepHours = ageInHours * 0.33; // 8 hours per day
+	        const heartbeats = ageInMinutes * 70; // Average 70 bpm
+	        const breaths = ageInMinutes * 16; // Average 16 breaths per minute
+	        const calories = ageInDays * 1800; // Average 1800 calories per day at rest
+
+	        // Famous people with same birthday (simplified)
+	        const famousPeople = getFamousPeople(birthDate.getMonth() + 1, birthDate.getDate());
+
+	        // Historical events (simplified)
+	        const historicalEvents = getHistoricalEvents(birthDate.getMonth() + 1, birthDate.getDate());
+
+	        // Major world events and your age when they happened
+	        const majorEvents = [
+	            { event: 'First iPhone released', date: new Date('2007-06-29') },
+	            { event: 'Facebook launched', date: new Date('2004-02-04') },
+	            { event: '9/11 attacks', date: new Date('2001-09-11') },
+	            { event: 'Fall of Berlin Wall', date: new Date('1989-11-09') },
+	            { event: 'First Moon Landing', date: new Date('1969-07-20') }
+	        ].map(event => {
+	            if (event.date > birthDate) {
+	                const ageMs = event.date - birthDate;
+	                const ageAtEvent = ageMs / (1000 * 60 * 60 * 24 * 365.25);
+	                return {
+	                    event: event.event,
+	                    date: event.date.toLocaleDateString(),
+	                    age: ageAtEvent.toFixed(1) + ' years'
+	                };
+	            }
+	            return null;
+	        }).filter(item => item !== null);
+
+	        return {
+	            // Core Age Data
+	            exactAge: {
+	                years,
+	                months,
+	                days,
+	                hours,
+	                minutes,
+	                seconds
+	            },
+	            ageInDecimal: ageInYears,
+	            totalWeeks: ageInDays / 7,
+	            totalDays: ageInDays,
+	            totalHours: ageInHours,
+	            totalMinutes: ageInMinutes,
+	            totalSeconds: ageInSeconds,
+
+	            // Interesting Life Stats
+	            lifeProgressPercent,
+	            westernZodiac,
+	            chineseZodiac,
+	            dayOfWeekBorn,
+	            leapYears,
+	            planetaryAges,
+
+	            // Date-Based Fun Facts
+	            nextBirthday: {
+	                months: monthsUntilBirthday,
+	                days: daysUntilBirthday
+	            },
+	            nextBirthdays,
+	            passedMilestones: milestones.filter(m => m.passed),
+	            upcomingMilestones,
+
+	            // Health & Wellness Insights
+	            sleepHours,
+	            heartbeats,
+	            breaths,
+	            calories,
+
+	            // Fun & Pop Culture
+	            famousPeople,
+	            historicalEvents,
+	            majorEvents,
+
+	            // Visualizations and Forecasts
+	            birthDate: birthDate.toLocaleDateString(),
+	            compareDate: compareDate.toLocaleDateString()
+	        };
+	    }
+
+	    function getWesternZodiac(date) {
+	        const day = date.getDate();
+	        const month = date.getMonth() + 1;
+
+	        if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return 'Aries';
+	        if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return 'Taurus';
+	        if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) return 'Gemini';
+	        if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) return 'Cancer';
+	        if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return 'Leo';
+	        if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) return 'Virgo';
+	        if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) return 'Libra';
+	        if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) return 'Scorpio';
+	        if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) return 'Sagittarius';
+	        if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) return 'Capricorn';
+	        if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) return 'Aquarius';
+	        return 'Pisces';
+	    }
+
+	    function getChineseZodiac(year) {
+	        const animals = ['Rat', 'Ox', 'Tiger', 'Rabbit', 'Dragon', 'Snake', 'Horse', 'Goat', 'Monkey', 'Rooster', 'Dog', 'Pig'];
+	        return animals[(year - 4) % 12];
+	    }
+
+	    function countLeapYears(startYear, endYear) {
+	        let count = 0;
+	        for (let year = startYear; year <= endYear; year++) {
+	            if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+	                count++;
+	            }
+	        }
+	        return count;
+	    }
+
+	    function getFamousPeople(month, day) {
+	        // Simplified famous people by birth date
+	        const famous = {
+	            '1-1': ['Paul Revere', 'J. Edgar Hoover'],
+	            '1-2': ['Isaac Asimov', 'Kate Bosworth'],
+	            // Add more dates as needed...
+	            '12-31': ['Anthony Hopkins', 'Val Kilmer']
+	        };
+	        return famous[`${month}-${day}`] || ['No famous people found for this date'];
+	    }
+
+	    function getHistoricalEvents(month, day) {
+	        // Simplified historical events by date
+	        const events = {
+	            '1-1': ['1863 - Emancipation Proclamation takes effect', '1999 - Euro currency introduced'],
+	            '1-2': ['1492 - Reconquista completed in Spain', '1960 - John F. Kennedy announces presidential run'],
+	            // Add more dates as needed...
+	            '12-31': ['1857 - Ottawa chosen as capital of Canada', '1999 - Panama Canal handed over to Panama']
+	        };
+	        return events[`${month}-${day}`] || ['No significant historical events found for this date'];
+	    }
+
+	    function displayResults(ageData) {
+	        // Show the results container
+	        resultsContainer.style.display = 'block';
+	        resultsGrid.innerHTML = '';
+
+	        // Show life progress
+	        lifeProgress.style.display = 'block';
+	        lifeProgressFill.style.width = `${ageData.lifeProgressPercent}%`;
+	        lifeProgressText.textContent = `${ageData.lifeProgressPercent.toFixed(2)}%`;
+
+	        // Core Age Data
+	        addResultCard('Core Age Data', [
+	            `Exact Age: ${ageData.exactAge.years} years, ${ageData.exactAge.months} months, ${ageData.exactAge.days} days`,
+	            `Age in Decimal: ${ageData.ageInDecimal.toFixed(2)} years`,
+	            `Total Weeks: ${Math.floor(ageData.totalWeeks)}`,
+	            `Total Days: ${Math.floor(ageData.totalDays)}`,
+	            `Total Hours: ${Math.floor(ageData.totalHours)}`,
+	            `Total Minutes: ${Math.floor(ageData.totalMinutes)}`,
+	            `Total Seconds: ${Math.floor(ageData.totalSeconds)}`
+	        ]);
+
+	        // Interesting Life Stats
+	        const planetaryAges = Object.entries(ageData.planetaryAges)
+	            .map(([planet, age]) => `${planet}: ${age.toFixed(2)} years`)
+	            .join(', ');
+
+	        addResultCard('Interesting Life Stats', [
+	            `Western Zodiac: ${ageData.westernZodiac}`,
+	            `Chinese Zodiac: ${ageData.chineseZodiac}`,
+	            `Born on a ${ageData.dayOfWeekBorn}`,
+	            `Leap Years Lived: ${ageData.leapYears}`,
+	            `Planetary Ages: ${planetaryAges}`
+	        ]);
+
+	        // Date-Based Fun Facts
+	        const nextBirthdays = ageData.nextBirthdays
+	            .map(b => `${b.year}: ${b.day}`)
+	            .join(', ');
+
+	        const passedMilestones = ageData.passedMilestones
+	            .map(m => m.name)
+	            .join(', ') || 'None yet';
+
+	        const upcomingMilestones = ageData.upcomingMilestones
+	            .map(m => m.name)
+	            .join(', ') || 'None upcoming';
+
+	        addResultCard('Date-Based Fun Facts', [
+	            `Next Birthday in: ${ageData.nextBirthday.months} months, ${ageData.nextBirthday.days} days`,
+	            `Next 5 Birthdays: ${nextBirthdays}`,
+	            `Passed Milestones: ${passedMilestones}`,
+	            `Upcoming Milestones: ${upcomingMilestones}`
+	        ]);
+
+	        // Health & Wellness Insights
+	        addResultCard('Health & Wellness Insights', [
+	            `Sleep Hours: ${Math.floor(ageData.sleepHours / 1000)} thousand hours`,
+	            `Heartbeats: ~${Math.floor(ageData.heartbeats / 1000000)} million`,
+	            `Breaths: ~${Math.floor(ageData.breaths / 1000000)} million`,
+	            `Calories Burned: ~${Math.floor(ageData.calories / 1000000)} million`
+	        ]);
+
+	        // Fun & Pop Culture
+	        addResultCard('Fun & Pop Culture', [
+	            `Famous People: ${ageData.famousPeople.join(', ')}`,
+	            `Historical Events: ${ageData.historicalEvents.join('; ')}`,
+	            `Major Events: ${ageData.majorEvents.map(e => `${e.event} (${e.age})`).join('; ')}`
+	        ]);
+
+	        // Add visualization placeholders
+	        addResultCard('Visualizations', [
+	            'Age trend chart would appear here',
+	            'Life timeline would appear here',
+	            'World average comparison would appear here'
+	        ]);
+
+	        // Scroll to results
+	        setTimeout(() => {
+	            resultsContainer.scrollIntoView({ behavior: 'smooth' });
+	        }, 300);
+	    }
+
+	    function addResultCard(title, items) {
+	        const card = document.createElement('div');
+	        card.className = 'result-card';
+
+	        const titleEl = document.createElement('h3');
+	        titleEl.textContent = title;
+	        card.appendChild(titleEl);
+
+	        items.forEach(item => {
+	            const p = document.createElement('p');
+	            p.innerHTML = item;
+	            card.appendChild(p);
+	        });
+
+	        resultsGrid.appendChild(card);
+	    }
+
+	    function downloadExcelReport() {
+	        // Get the birth date and compare date
+	        const birthDate = new Date(birthDateInput.value);
+	        const compareDate = compareDateInput.value ? new Date(compareDateInput.value) : new Date();
+
+	        // Recalculate age data
+	        const ageData = getAgeData(birthDate, compareDate);
+
+	        // Prepare data for Excel
+	        const excelData = [
+	            ['AGE CALCULATOR REPORT', '', '', '', '', ''],
+	            ['Generated on', new Date().toLocaleString(), '', '', '', ''],
+	            ['Birth Date', ageData.birthDate, '', '', '', ''],
+	            ['Compare Date', ageData.compareDate, '', '', '', ''],
+	            ['', '', '', '', '', ''],
+
+	            ['CORE AGE DATA', '', '', '', '', ''],
+	            ['Exact Age', `${ageData.exactAge.years} years, ${ageData.exactAge.months} months, ${ageData.exactAge.days} days`, '', '', '', ''],
+	            ['Age in Decimal', `${ageData.ageInDecimal.toFixed(2)} years`, '', '', '', ''],
+	            ['Total Weeks Alive', Math.floor(ageData.totalWeeks), '', '', '', ''],
+	            ['Total Days Alive', Math.floor(ageData.totalDays), '', '', '', ''],
+	            ['Total Hours Alive', Math.floor(ageData.totalHours), '', '', '', ''],
+	            ['Total Minutes Alive', Math.floor(ageData.totalMinutes), '', '', '', ''],
+	            ['Total Seconds Alive', Math.floor(ageData.totalSeconds), '', '', '', ''],
+	            ['', '', '', '', '', ''],
+
+	            ['INTERESTING LIFE STATS', '', '', '', '', ''],
+	            ['Life Progress', `${ageData.lifeProgressPercent.toFixed(2)}% of 80 years`, '', '', '', ''],
+	            ['Western Zodiac', ageData.westernZodiac, '', '', '', ''],
+	            ['Chinese Zodiac', ageData.chineseZodiac, '', '', '', ''],
+	            ['Day of Week Born', ageData.dayOfWeekBorn, '', '', '', ''],
+	            ['Leap Years Lived', ageData.leapYears, '', '', '', ''],
+	            ['', '', '', '', '', ''],
+	            ['PLANETARY AGES', '', '', '', '', ''],
+	            ...Object.entries(ageData.planetaryAges).map(([planet, age]) => [planet, `${age.toFixed(2)} years`]),
+	            ['', '', '', '', '', ''],
+
+	            ['DATE-BASED FUN FACTS', '', '', '', '', ''],
+	            ['Next Birthday', `${ageData.nextBirthday.months} months, ${ageData.nextBirthday.days} days away`, '', '', '', ''],
+	            ['Next 5 Birthdays', '', '', '', '', ''],
+	            ...ageData.nextBirthdays.map(b => ['', `${b.year}: ${b.day}`, '', '', '', '']),
+	            ['', '', '', '', '', ''],
+	            ['PASSED MILESTONES', '', '', '', '', ''],
+	            ...ageData.passedMilestones.map(m => [m.name, '', '', '', '', '']),
+	            ['', '', '', '', '', ''],
+	            ['UPCOMING MILESTONES', '', '', '', '', ''],
+	            ...ageData.upcomingMilestones.map(m => [m.name, '', '', '', '', '']),
+	            ['', '', '', '', '', ''],
+
+	            ['HEALTH & WELLNESS INSIGHTS', '', '', '', '', ''],
+	            ['Sleep Hours', `${Math.floor(ageData.sleepHours / 1000)} thousand hours`, '', '', '', ''],
+	            ['Heartbeats', `~${Math.floor(ageData.heartbeats / 1000000)} million`, '', '', '', ''],
+	            ['Breaths', `~${Math.floor(ageData.breaths / 1000000)} million`, '', '', '', ''],
+	            ['Calories Burned', `~${Math.floor(ageData.calories / 1000000)} million`, '', '', '', ''],
+	            ['', '', '', '', '', ''],
+
+	            ['FUN & POP CULTURE', '', '', '', '', ''],
+	            ['Famous People', ageData.famousPeople.join(', '), '', '', '', ''],
+	            ['Historical Events', ageData.historicalEvents.join('; '), '', '', '', ''],
+	            ['Major World Events', '', '', '', '', ''],
+	            ...ageData.majorEvents.map(e => [e.event, e.date, `You were ${e.age}`, '', '', '']),
+	            ['', '', '', '', '', '']
+	        ];
+
+	        // Create workbook
+	        const wb = XLSX.utils.book_new();
+	        const ws = XLSX.utils.aoa_to_sheet(excelData);
+
+	        // Style the header row
+	        ws['A1'].s = {
+	            font: { bold: true, sz: 16, color: { rgb: "FF0000" } },
+	            fill: { fgColor: { rgb: "FFFF00" } }
+	        };
+
+	        // Merge header cells
+	        ws['!merges'] = [
+	            { s: { r: 0, c: 0 }, e: { r: 0, c: 5 } }
+	        ];
+
+	        // Add worksheet to workbook
+	        XLSX.utils.book_append_sheet(wb, ws, "Age Report");
+
+	        // Generate Excel file
+	        const fileName = `Age_Calculator_Report_${new Date().toISOString().slice(0, 10)}.xlsx`;
+	        XLSX.writeFile(wb, fileName);
+	    }
+
+	    function resetCalculator() {
+	        birthDateInput.value = '';
+	        birthTimeInput.value = '';
+	        compareDateInput.value = '';
+	        resultsContainer.style.display = 'none';
+	        lifeProgress.style.display = 'none';
+	        downloadExcelBtn.disabled = true;
+
+	        // Reset to default birth date (25 years ago)
+	        const defaultBirthDate = new Date();
+	        defaultBirthDate.setFullYear(defaultBirthDate.getFullYear() - 25);
+	        birthDateInput.valueAsDate = defaultBirthDate;
+
+	        // Reset compare date to today
+	        compareDateInput.valueAsDate = new Date();
+	    }
+
+	    // Scroll reveal animation
+	    function reveal() {
+	        const reveals = document.querySelectorAll('.reveal');
+
+	        for (let i = 0; i < reveals.length; i++) {
+	            const windowHeight = window.innerHeight;
+	            const elementTop = reveals[i].getBoundingClientRect().top;
+	            const elementVisible = 150;
+
+	            if (elementTop < windowHeight - elementVisible) {
+	                reveals[i].classList.add('active');
+	            } else {
+	                reveals[i].classList.remove('active');
+	            }
+	        }
+	    }
+
+	    window.addEventListener('scroll', reveal);
+	    reveal(); // Initialize
+</script>
