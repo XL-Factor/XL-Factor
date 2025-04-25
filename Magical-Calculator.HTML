@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Magical Calculator - A versatile calculator tool with multiple calculation modes including standard, scientific, age, loan, interest, and conversion calculators">
+    <meta name="keywords" content="calculator, scientific calculator, age calculator, loan calculator, EMI calculator, interest calculator, conversion calculator">
+    <title>Magical Calculator | Multiple Calculator Tools | XL-Factor</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-menu-btn {
+            padding: 8px 16px;
+            border-radius: 5px;
+            background-color: transparent;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 2px solid white;
+            font-weight: bold;
+            opacity: 0.9;
+        }
+
+        .nav-menu-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        main {
+            padding: 1.5rem 0;
+        }
+
+        .tool-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #ff9800;
+        }
+
+        /* Tool Grid Styles */
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #ff9800;
+        }
+
+        .tool-name {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            font-weight: bold;
+        }
+
+        .tool-desc {
+            font-size: 0.8rem;
+            color: #ddd;
+            line-height: 1.3;
+        }
+
+        /* Ad Container */
+        .ad-container {
+            width: 98%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px;
+            margin: 1rem 0;
+            text-align: center;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 1.5rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slogan {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .credit {
+            color: #ddd;
+            font-size: 0.7rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tool-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .nav-menu-btn {
+                width: 100%;
+                text-align: center;
+                padding: 6px 12px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tool-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tool-card {
+                height: 140px;
+            }
+        }
+
+        /* Animations */
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transition: 1s all ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AdMob Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">XL-Factor</a>
+                <div class="nav-menu">
+                    <a href="Tools.html" class="nav-menu-btn">Back to All Tools List</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="tool-section reveal">
+                <h1 class="section-title">Magical Calculator</h1>
+                <p style="text-align: center; margin-bottom: 1rem; font-size: 0.9rem;">A versatile calculator with multiple modes for all your calculation needs.</p>
+
+                <div class="ad-container">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <div class="tool-grid">
+                    <!-- Standard Calculator -->
+                    <div class="tool-card" onclick="window.location.href='Standard-Calculator.html'">
+                        <div class="tool-icon"><i class="fas fa-calculator"></i></div>
+                        <div class="tool-name">Standard Calculator</div>
+                        <div class="tool-desc">Basic calculator for everyday arithmetic operations</div>
+                    </div>
+
+                    <!-- Age Calculator -->
+                    <div class="tool-card" onclick="window.location.href='Age-Calculator.html'">
+                        <div class="tool-icon"><i class="fas fa-birthday-cake"></i></div>
+                        <div class="tool-name">Age Calculator</div>
+                        <div class="tool-desc">Calculate exact age in years, months and days</div>
+                    </div>
+
+                    <!-- Scientific Calculator -->
+                    <div class="tool-card" onclick="window.location.href='Scientific-Calculator.html'">
+                        <div class="tool-icon"><i class="fas fa-square-root-alt"></i></div>
+                        <div class="tool-name">Scientific Calculator</div>
+                        <div class="tool-desc">Advanced calculator with scientific functions</div>
+                    </div>
+
+                    <!-- Loan / EMI Calculator -->
+                    <div class="tool-card" onclick="window.location.href='Loan-EMI-Calculator.html'">
+                        <div class="tool-icon"><i class="fas fa-home"></i></div>
+                        <div class="tool-name">Loan / EMI Calculator</div>
+                        <div class="tool-desc">Calculate loan EMIs and payment schedules</div>
+                    </div>
+
+                    <!-- Interest Calculator -->
+                    <div class="tool-card" onclick="window.location.href='Interest-Calculator.html'">
+                        <div class="tool-icon"><i class="fas fa-percentage"></i></div>
+                        <div class="tool-name">Interest Calculator</div>
+                        <div class="tool-desc">Calculate simple and compound interest amounts</div>
+                    </div>
+
+                    <!-- Conversion Calculator -->
+                    <div class="tool-card" onclick="window.location.href='Conversion-Calculator.html'">
+                        <div class="tool-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <div class="tool-name">Conversion Calculator</div>
+                        <div class="tool-desc">Convert between units, currencies and measurements</div>
+                    </div>
+
+                </div>
+
+                <div class="ad-container">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="slogan">Multiple calculator tools in one magical place!</p>
+                <p class="credit">© 2025 XL-Factor | Last Updated: Apr 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveals[i].getBoundingClientRect().top;
+                const revealPoint = 100;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+    </script>
+</body>
+</html>
