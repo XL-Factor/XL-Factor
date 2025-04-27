@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional Excel tools to enhance your productivity and workflow">
-    <meta name="keywords" content="excel tools, productivity, excel utilities, excel converters">
-    <title>XL-Factor | Professional Excel Tools</title>
+    <meta name="description" content="XL-Factor - Complete collection of all Excel tools including converters, calculators, templates, formulas and more">
+    <meta name="keywords" content="Excel tools, Excel converters, Excel calculators, Excel templates, Excel formulas, Excel utilities">
+    <title>All Tools | XL-Factor - Complete Excel Tool Collection</title>
     <style>
-        /* Main CSS matching INDEX.html style */
+        /* Base styles */
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(to right, #6a11cb, #2575fc);
@@ -15,6 +15,7 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            min-height: 100vh;
         }
 
         .container {
@@ -24,7 +25,7 @@
             padding: 0 20px;
         }
 
-        /* Header & Navigation */
+        /* Header */
         header {
             background: rgba(255, 255, 255, 0.1);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -99,98 +100,106 @@
 
         /* Main Content */
         main {
-            padding: 3rem 0;
+            padding: 1.5rem 0;
         }
 
-        .page-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
+        .tool-section {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
 
-        .page-header h1 {
-            font-size: 2.5rem;
+        .section-title {
+            font-size: 1.8rem;
             margin-bottom: 1rem;
-        }
-
-        .page-header p {
-            font-size: 1.1rem;
-            color: #ddd;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Table Styles */
-        .tools-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .tools-table thead {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .tools-table th {
-            padding: 1.2rem 1rem;
-            text-align: left;
-            font-weight: 600;
             color: white;
-        }
-
-        .tools-table td {
-            padding: 1.2rem 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ddd;
-        }
-
-        .tools-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .tools-table tr:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-
-        .tool-button {
-            display: inline-block;
-            background-color: #ff9800;
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
             text-align: center;
+            position: relative;
+            padding-bottom: 10px;
         }
 
-        .tool-button:hover {
-            background-color: #e68900;
-            transform: translateY(-2px);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #ff9800;
+        }
+
+        /* Tool Grid Styles */
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #ff9800;
         }
 
         .tool-name {
-            font-weight: 600;
-            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            font-weight: bold;
+        }
+
+        .tool-desc {
+            font-size: 0.8rem;
+            color: #ddd;
+            line-height: 1.3;
+        }
+
+        /* Ad Container */
+        .ad-container {
+            width: 98%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px;
+            margin: 1rem 0;
+            text-align: center;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Footer */
         footer {
             background: rgba(255, 255, 255, 0.1);
-            padding: 2rem 0;
+            padding: 1rem 0;
             text-align: center;
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 3rem;
+            margin-top: 1.5rem;
         }
 
         .footer-content {
@@ -200,19 +209,27 @@
         }
 
         .slogan {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
             color: white;
             font-weight: 500;
         }
 
         .credit {
             color: #ddd;
-            font-size: 0.9rem;
+            font-size: 0.7rem;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .tool-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -244,35 +261,19 @@
             .hamburger {
                 display: block;
             }
+        }
 
-            .tools-table {
-                display: block;
-                overflow-x: auto;
+        @media (max-width: 480px) {
+            .tool-grid {
+                grid-template-columns: 1fr;
             }
 
-            .page-header h1 {
-                font-size: 2rem;
+            .tool-card {
+                height: 140px;
             }
         }
 
         /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Scroll Reveal Animation */
         .reveal {
             position: relative;
             opacity: 0;
@@ -283,16 +284,20 @@
             opacity: 1;
         }
     </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AdMob Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
-                <a href="INDEX.html" class="logo">XL-Factor</a>
+                <a href="#" class="logo">XL-Factor</a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="About-Us.html">About Us</a></li>
-                    <li><a href="Tools.html" class="active">Tools</a></li>
+                    <li><a href="Tools.html" class="active">All Tools</a></li>
                     <li><a href="Disclaimer.html">Disclaimer</a></li>
                     <li><a href="Privacy-Policy.html">Privacy Policy</a></li>
                     <li><a href="Terms-of-Service.html">Terms of Service</a></li>
@@ -311,130 +316,222 @@
 
     <main>
         <div class="container">
-            <section class="page-header reveal">
-                <h1>XL-Factor Professional Tools</h1>
-                <p>Powerful tools designed to simplify your Excel workflows. Convert, merge, protect, and analyze your spreadsheet data with our professional-grade utilities.</p>
-            </section>
+            <section class="tool-section reveal">
+                <h1 class="section-title">All XL-Factor Tools</h1>
+                <p style="text-align: center; margin-bottom: 1rem; font-size: 0.9rem;">Complete collection of our powerful Excel tools, converters, calculators and utilities</p>
 
-            <table class="tools-table reveal">
-                <thead>
-                    <tr>
-                        <th>Tool Name</th>
-                        <th>Description</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="reveal">
-                        <td class="tool-name">XL-Convert</td>
-                        <td>Convert Excel data to CSV, PDF, JSON formats and vice versa with just a few clicks.</td>
-                        <td><a href="XL-Convert.html" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">XL - Split and Merge</td>
-                        <td>Powerful tools for manipulating Excel data including merging, splitting and transforming</td>
-                        <td><a href="XL-Split-Merge.html" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">XL-Data Protection</td>
-                        <td>Easily manage passwords and range locking to protect your valuable data.</td>
-                        <td><a href="XL-Data-Protection.html" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">Magical Calculator</td>
-                        <td>A versatile tool with six unique calculators for all your quick and easy calculation needs!</td>
-                        <td><a href="Magical-Calculator.html" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">XL-Pre-designed template</td>
-                        <td>Easily download pre-designed Excel templates and make all your plans a success!</td>
-                        <td><a href="XL-Pre-designed-template" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">DataLocker</td>
-                        <td>Advanced Excel data encryption for cells, sheets, or entire workbooks.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">V Lookup Pro</td>
-                        <td>Enhanced VLOOKUP with fuzzy matching, multiple criteria, and error handling.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">Formula Builder</td>
-                        <td>Visual interface for building complex Excel formulas without memorizing syntax.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">Pivot Master</td>
-                        <td>Create advanced pivot tables with drag-and-drop simplicity for large datasets.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">Chart Wizard</td>
-                        <td>Generate professional Excel charts with custom styling and visualization options.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">Data Cleaner</td>
-                        <td>Automatically clean and standardize Excel data by removing duplicates and fixing formats.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">Macro Recorder</td>
-                        <td>Record and edit Excel macros without VBA knowledge to automate repetitive tasks.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">Template Designer</td>
-                        <td>Create custom Excel templates with predefined formulas and standardized formatting.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">Data Validator</td>
-                        <td>Set up data validation rules visually with dropdowns, date ranges, and restrictions.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">Conditional Formatter</td>
-                        <td>Advanced conditional formatting with visual rules builder for data patterns.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">Data Splitter</td>
-                        <td>Split large Excel files into smaller ones based on region, date, or categories.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">Table Converter</td>
-                        <td>Convert between Excel tables and ranges while preserving formatting and formulas.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">Data Importer</td>
-                        <td>Import data from databases and text files directly into Excel with SQL support.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">Workbook Analyzer</td>
-                        <td>Scan Excel files for errors, broken links, and get optimization recommendations.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                    <tr class="reveal">
-                        <td class="tool-name">Data Reporter</td>
-                        <td>Generate automated reports from Excel data with charts, tables, and commentary.</td>
-                        <td><a href="#" class="tool-button">Use Tool</a></td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="ad-container">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <!-- XL-Converter Tools Section -->
+                <h2 class="section-title">XL-Converter Tools</h2>
+                <div class="tool-grid">
+                    <div class="tool-card" onclick="window.location.href='Excel-to-CSV.html'">
+                        <div class="tool-icon"><i class="fas fa-file-csv"></i></div>
+                        <div class="tool-name">Excel to CSV Converter</div>
+                        <div class="tool-desc">Convert Excel files to CSV format while preserving your data structure</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Excel-to-PDF.html'">
+                        <div class="tool-icon"><i class="fas fa-file-pdf"></i></div>
+                        <div class="tool-name">Excel to PDF Converter</div>
+                        <div class="tool-desc">Transform your Excel sheets into professional PDF documents</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Excel-to-JSON.html'">
+                        <div class="tool-icon"><i class="fas fa-code"></i></div>
+                        <div class="tool-name">Excel to JSON Converter</div>
+                        <div class="tool-desc">Convert Excel data to JSON format for web applications and APIs</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='CSV-to-Excel.html'">
+                        <div class="tool-icon"><i class="fas fa-file-excel"></i></div>
+                        <div class="tool-name">CSV to Excel Converter</div>
+                        <div class="tool-desc">Convert CSV files to Excel format with proper column formatting</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='PDF-to-Excel.html'">
+                        <div class="tool-icon"><i class="fas fa-file-import"></i></div>
+                        <div class="tool-name">PDF to Excel Converter</div>
+                        <div class="tool-desc">Extract tables from PDFs and convert them to editable Excel format</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='JSON-to-Excel.html'">
+                        <div class="tool-icon"><i class="fas fa-table"></i></div>
+                        <div class="tool-name">JSON to Excel Converter</div>
+                        <div class="tool-desc">Convert JSON data to Excel spreadsheets with proper formatting</div>
+                    </div>
+                </div>
+
+                <!-- XL-SplitMerge Section -->
+                <h2 class="section-title">XL-SplitMerge</h2>
+                <div class="tool-grid">
+                    <div class="tool-card" onclick="window.location.href='Merge-XL.html'">
+                        <div class="tool-icon"><i class="fas fa-file-excel"></i></div>
+                        <div class="tool-name">Merge Excel Files</div>
+                        <div class="tool-desc">Combine multiple Excel files into one with all data merged</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Merge-Sheet.html'">
+                        <div class="tool-icon"><i class="fa fa-object-group"></i></div>
+                        <div class="tool-name">Merge Excel Sheets</div>
+                        <div class="tool-desc">Combine multiple sheets from one Excel file into a single sheet</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='XL-SheetSync.html'">
+                        <div class="tool-icon"><i class="fas fa-layer-group"></i></div>
+                        <div class="tool-name">Combine Excel Files into Sheets</div>
+                        <div class="tool-desc">Combine Excel Files into One Workbook: Easy Sheet Consolidation Tool</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Data-Sheet-Slicer.html'">
+                        <div class="tool-icon"><i class="fas fa-cut"></i></div>
+                        <div class="tool-name">Create Excel Files from Excel Sheets</div>
+                        <div class="tool-desc">Convert Excel sheets into individual Excel files quickly and effortlessly!</div>
+                    </div>
+                </div>
+
+                <!-- Magical Calculator Section -->
+                <h2 class="section-title">Magical Calculator</h2>
+                <div class="tool-grid">
+                    <div class="tool-card" onclick="window.location.href='Age-Calculator.html'">
+                        <div class="tool-icon"><i class="fas fa-birthday-cake"></i></div>
+                        <div class="tool-name">Age Calculator</div>
+                        <div class="tool-desc">Calculate exact age in years, months and days from birth date</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Scientific-Calculator.html'">
+                        <div class="tool-icon"><i class="fas fa-calculator"></i></div>
+                        <div class="tool-name">Scientific Calculator</div>
+                        <div class="tool-desc">Advanced calculator with scientific functions and equation solving</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Loan-Calculator.html'">
+                        <div class="tool-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                        <div class="tool-name">Loan Calculator</div>
+                        <div class="tool-desc">Calculate loan payments, interest and amortization schedules</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Currency-Converter.html'">
+                        <div class="tool-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <div class="tool-name">Currency Converter</div>
+                        <div class="tool-desc">Convert between world currencies with up-to-date exchange rates</div>
+                    </div>
+                </div>
+
+                <!-- XL-Pre-designed template Section -->
+                <h2 class="section-title">XL-Pre-designed Templates</h2>
+                <div class="tool-grid">
+                    <div class="tool-card" onclick="window.location.href='XL-Calendar.html'">
+                        <div class="tool-icon"><i class="far fa-calendar-alt"></i></div>
+                        <div class="tool-name">XL-Calendar</div>
+                        <div class="tool-desc">Customizable Excel calendar templates for any year or month</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='XL-Planner.html'">
+                        <div class="tool-icon"><i class="fas fa-tasks"></i></div>
+                        <div class="tool-name">XL-Planner</div>
+                        <div class="tool-desc">Professional planning templates for projects and schedules</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='To-Do-List.html'">
+                        <div class="tool-icon"><i class="fas fa-check-square"></i></div>
+                        <div class="tool-name">To-Do List</div>
+                        <div class="tool-desc">Interactive to-do list templates with progress tracking</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Check-List.html'">
+                        <div class="tool-icon"><i class="fas fa-clipboard-list"></i></div>
+                        <div class="tool-name">Check List</div>
+                        <div class="tool-desc">Customizable checklist templates for various purposes</div>
+                    </div>
+                </div>
+
+                <!-- XL-Master Formulas Section -->
+                <h2 class="section-title">XL-Master Formulas</h2>
+                <div class="tool-grid">
+                    <div class="tool-card" onclick="window.location.href='V-Lookup.html'">
+                        <div class="tool-icon"><i class="fas fa-search"></i></div>
+                        <div class="tool-name">V-Lookup Master</div>
+                        <div class="tool-desc">Learn and implement VLOOKUP with practical examples</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Pivot-Table.html'">
+                        <div class="tool-icon"><i class="fas fa-table"></i></div>
+                        <div class="tool-name">Pivot Table Wizard</div>
+                        <div class="tool-desc">Master pivot tables with step-by-step guidance</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Conditional-Formatting.html'">
+                        <div class="tool-icon"><i class="fas fa-paint-brush"></i></div>
+                        <div class="tool-name">Conditional Formatting</div>
+                        <div class="tool-desc">Advanced conditional formatting techniques and templates</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Advanced-Formulas.html'">
+                        <div class="tool-icon"><i class="fas fa-magic"></i></div>
+                        <div class="tool-name">Advanced Formulas</div>
+                        <div class="tool-desc">Collection of powerful Excel formulas for complex tasks</div>
+                    </div>
+                </div>
+
+                <!-- XL-Magical Tools Section -->
+                <h2 class="section-title">XL-Magical Tools</h2>
+                <div class="tool-grid">
+                    <div class="tool-card" onclick="window.location.href='Excel-to-WhatsApp.html'">
+                        <div class="tool-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div class="tool-name">Excel to WhatsApp</div>
+                        <div class="tool-desc">Send bulk WhatsApp messages directly from Excel data</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Excel-to-Email.html'">
+                        <div class="tool-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="tool-name">Excel to Email</div>
+                        <div class="tool-desc">Send personalized bulk emails from your Excel contact list</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Data-Cleansing.html'">
+                        <div class="tool-icon"><i class="fas fa-broom"></i></div>
+                        <div class="tool-name">Data Cleansing</div>
+                        <div class="tool-desc">Clean and standardize your Excel data automatically</div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='Data-Analysis.html'">
+                        <div class="tool-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="tool-name">Data Analysis</div>
+                        <div class="tool-desc">Powerful data analysis tools with visualization options</div>
+                    </div>
+                </div>
+
+                <div class="ad-container">
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                         data-ad-slot="XXXXXXXXXX"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </section>
         </div>
     </main>
 
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p class="slogan">Simplify your Excel workflows with high-speed tools made for effortless data handling.</p>
-                <p class="credit">@ 2025 Designed by XL-Factor</p>
+                <p class="slogan">Powerful data manipulation tools for all your Excel needs.</p>
+                <p class="credit">© 2025 XL-Factor | Last Updated: Apr 2025</p>
             </div>
         </div>
     </footer>
@@ -462,7 +559,7 @@
             for (let i = 0; i < reveals.length; i++) {
                 const windowHeight = window.innerHeight;
                 const revealTop = reveals[i].getBoundingClientRect().top;
-                const revealPoint = 150;
+                const revealPoint = 100;
 
                 if (revealTop < windowHeight - revealPoint) {
                     reveals[i].classList.add('active');
@@ -474,24 +571,6 @@
 
         window.addEventListener('scroll', reveal);
         window.addEventListener('load', reveal);
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
     </script>
 </body>
 </html>
