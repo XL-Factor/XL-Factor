@@ -6,6 +6,7 @@
     <meta name="description" content="Universal Conversion Tool - Convert between different units of measurement and download results as Excel files">
     <meta name="keywords" content="unit converter, measurement tool, Excel download, conversion history, length, weight, temperature">
     <title>Universal Converter | XL-Factor</title>
+    <link rel="icon" type="image/ico" sizes="96x96" href="ImageData/favicon.ico">
     <style>
         /* Base styles matching Scientific-Calculator.html */
         body {
@@ -830,27 +831,27 @@
                 }
             },
             area: {
-                units: ['Square Meter (m²)', 'Square Kilometer (km²)', 'Square Mile (mi²)', 'Square Yard (yd²)', 'Square Foot (ft²)', 'Square Inch (in²)', 'Acre (ac)', 'Hectare (ha)'],
+                units: ['Square Meter (mÂ²)', 'Square Kilometer (kmÂ²)', 'Square Mile (miÂ²)', 'Square Yard (ydÂ²)', 'Square Foot (ftÂ²)', 'Square Inch (inÂ²)', 'Acre (ac)', 'Hectare (ha)'],
                 factors: {
-                    'Square Meter (m²)': 1,
-                    'Square Kilometer (km²)': 1000000,
-                    'Square Mile (mi²)': 2589988.11,
-                    'Square Yard (yd²)': 0.836127,
-                    'Square Foot (ft²)': 0.092903,
-                    'Square Inch (in²)': 0.00064516,
+                    'Square Meter (mÂ²)': 1,
+                    'Square Kilometer (kmÂ²)': 1000000,
+                    'Square Mile (miÂ²)': 2589988.11,
+                    'Square Yard (ydÂ²)': 0.836127,
+                    'Square Foot (ftÂ²)': 0.092903,
+                    'Square Inch (inÂ²)': 0.00064516,
                     'Acre (ac)': 4046.86,
                     'Hectare (ha)': 10000
                 }
             },
             volume: {
-                units: ['Liter (L)', 'Milliliter (mL)', 'Cubic Meter (m³)', 'Cubic Centimeter (cm³)', 'Cubic Inch (in³)', 'Cubic Foot (ft³)', 'Gallon (gal)', 'Quart (qt)', 'Pint (pt)', 'Fluid Ounce (fl oz)'],
+                units: ['Liter (L)', 'Milliliter (mL)', 'Cubic Meter (mÂ³)', 'Cubic Centimeter (cmÂ³)', 'Cubic Inch (inÂ³)', 'Cubic Foot (ftÂ³)', 'Gallon (gal)', 'Quart (qt)', 'Pint (pt)', 'Fluid Ounce (fl oz)'],
                 factors: {
                     'Liter (L)': 1,
                     'Milliliter (mL)': 0.001,
-                    'Cubic Meter (m³)': 1000,
-                    'Cubic Centimeter (cm³)': 0.001,
-                    'Cubic Inch (in³)': 0.0163871,
-                    'Cubic Foot (ft³)': 28.3168,
+                    'Cubic Meter (mÂ³)': 1000,
+                    'Cubic Centimeter (cmÂ³)': 0.001,
+                    'Cubic Inch (inÂ³)': 0.0163871,
+                    'Cubic Foot (ftÂ³)': 28.3168,
                     'Gallon (gal)': 3.78541,
                     'Quart (qt)': 0.946353,
                     'Pint (pt)': 0.473176,
@@ -999,7 +1000,7 @@
                 const fromFactor = conversionData[type].factors[from];
                 const toFactor = conversionData[type].factors[to];
                 result = value * fromFactor / toFactor;
-                formulaText = `${value} ${from} × (${fromFactor} / ${toFactor}) = ${result} ${to}`;
+                formulaText = `${value} ${from} Ã— (${fromFactor} / ${toFactor}) = ${result} ${to}`;
             }
 
             // Update results
