@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Excel VLOOKUP Automation Tool - Automatically apply VLOOKUP between two Excel files">
+    <meta name="keywords" content="Excel VLOOKUP, Excel automation, Excel data merge">
+    <title>Excel VLOOKUP Automation Tool | XL-Factor</title>
+    <style>
+        /* Base styles matching the original */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links a.active {
+            background-color: #ff9800;
+        }
+
+        .nav-links a.active:hover {
+            background-color: #e68900;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .tool-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #ff9800;
+        }
+
+        /* Converter Tool Styles */
+        .converter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .converter-box {
+            flex: 2;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .file-upload {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .file-upload-label {
+            display: inline-block;
+            padding: 15px 30px;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .file-upload-label:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .file-upload-label:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .file-info {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        .file-list {
+            margin-top: 1rem;
+            max-height: 150px;
+            overflow-y: auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .file-item:last-child {
+            border-bottom: none;
+        }
+
+        .vlookup-options {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .vlookup-options.active {
+            display: block;
+        }
+
+        .option-group {
+            margin-bottom: 15px;
+        }
+
+        .option-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .option-group select,
+        .option-group input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .option-group select option {
+            background: #333;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, #ff9800, #ff5722);
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: transparent;
+            color: white;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .loading {
+            position: relative;
+            pointer-events: none;
+        }
+        .loading:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Help Section */
+        .help-section {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-container {
+            margin-top: 1rem;
+        }
+
+        .tab-buttons {
+            display: flex;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 1rem;
+        }
+
+        .tab-btn {
+            padding: 10px 15px;
+            background: transparent;
+            border: none;
+            color: #ddd;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: #ff9800;
+        }
+
+        .tab-btn.active:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ff9800;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 10px 0;
+            color: #ddd;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: #ffcc80;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .faq-answer.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .video-link {
+            display: block;
+            margin-top: 1rem;
+            color: #ff9800;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .video-link:hover {
+            color: #e68900;
+            text-decoration: underline;
+        }
+
+        .video-icon {
+            margin-right: 5px;
+        }
+
+        /* Ad Container */
+        .ad-container {
+            width: 94%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .ad-placeholder {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 50px 20px;
+            border-radius: 5px;
+            color: #ddd;
+            font-style: italic;
+            margin: 0 auto;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slogan {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .credit {
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .nav-links a {
+                width: 80%;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .converter-container {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transition: 1s all ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">XL-Factor</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About-Us.html">About Us</a></li>
+                    <li><a href="Tools.html">Tools</a></li>
+                    <li><a href="Disclaimer.html">Disclaimer</a></li>
+                    <li><a href="Privacy-Policy.html">Privacy Policy</a></li>
+                    <li><a href="Terms-of-Service.html">Terms of Service</a></li>
+                    <li><a href="Contact-Us.html">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="tool-section reveal">
+                <h1 class="section-title">Excel VLOOKUP Automation Tool</h1>
+                <p style="text-align: center; margin-bottom: 2rem;">Automatically apply VLOOKUP between two Excel files to merge data.</p>
+
+                <div class="converter-container">
+                    <div class="converter-box">
+                        <div class="ad-container">
+                            <div class="ad-placeholder">AdMob Advertisement Space</div>
+                        </div>
+
+                        <div class="file-upload">
+                            <label for="mainFileInput" class="file-upload-label">Choose Main Excel File</label>
+                            <input type="file" id="mainFileInput" class="file-input" accept=".xlsx,.xls">
+                            <div class="file-info" id="mainFileInfo">No file selected</div>
+                            <div class="file-list" id="mainFileList"></div>
+                        </div>
+
+                        <div class="file-upload">
+                            <label for="lookupFileInput" class="file-upload-label">Choose Lookup Excel File</label>
+                            <input type="file" id="lookupFileInput" class="file-input" accept=".xlsx,.xls">
+                            <div class="file-info" id="lookupFileInfo">No file selected</div>
+                            <div class="file-list" id="lookupFileList"></div>
+                        </div>
+
+                        <div class="vlookup-options" id="vlookupOptions">
+                            <div class="option-group">
+                                <label for="mainSheetSelect">Select Main File Sheet:</label>
+                                <select id="mainSheetSelect"></select>
+                            </div>
+
+                            <div class="option-group">
+                                <label for="lookupSheetSelect">Select Lookup File Sheet:</label>
+                                <select id="lookupSheetSelect"></select>
+                            </div>
+
+                            <div class="option-group">
+                                <label for="lookupKeySelect">Select Lookup Key Column (Main File):</label>
+                                <select id="lookupKeySelect"></select>
+                            </div>
+
+                            <div class="option-group">
+                                <label for="lookupRangeKeySelect">Select Lookup Key Column (Lookup File):</label>
+                                <select id="lookupRangeKeySelect"></select>
+                            </div>
+
+                            <div class="option-group">
+                                <label for="valueColumnSelect">Select Value Column to Return:</label>
+                                <select id="valueColumnSelect" multiple size="5" style="height:auto;"></select>
+                            </div>
+
+                            <div class="option-group">
+                                <label for="resultColumnName">New Column Name for VLOOKUP Results:</label>
+                                <input type="text" id="resultColumnName" placeholder="Enter column name for results">
+                            </div>
+
+                            <div class="option-group">
+                                <label for="exactMatch">
+                                    <input type="checkbox" id="exactMatch" checked> Exact Match (Recommended)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="progress-container" id="progressContainer">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn" id="optionsBtn">VLOOKUP Options</button>
+                            <button class="btn" id="processBtn">Process VLOOKUP</button>
+                            <button class="btn" id="downloadBtn" disabled>Download Result File</button>
+                            <button class="btn" id="resetBtn">Reset</button>
+                        </div>
+
+                        <div class="ad-container">
+                            <div class="ad-placeholder">AdMob Advertisement Space</div>
+                        </div>
+                    </div>
+
+                    <div class="help-section">
+                        <h2>How to Use This Tool</h2>
+                        <div class="tab-container">
+                            <div class="tab-buttons">
+                                <button class="tab-btn active" data-tab="instructions">Instructions</button>
+                                <button class="tab-btn" data-tab="faq">FAQ</button>
+                                <button class="tab-btn" data-tab="resources">Video</button>
+                            </div>
+
+                            <div class="tab-content active" id="instructions">
+                                <p>1. Upload your main Excel file (the file you want to add data to)</p>
+                                <p>2. Upload your lookup Excel file (the file containing the data to look up)</p>
+                                <p>3. Click "VLOOKUP Options" to configure the VLOOKUP parameters</p>
+                                <p>4. Select the sheets and columns to use for the VLOOKUP</p>
+                                <p>5. Click "Process VLOOKUP" to apply the VLOOKUP formula</p>
+                                <p>6. Click "Download Result File" to save the modified file</p>
+                                <p>7. Use "Reset" to clear all files and start over</p>
+                            </div>
+
+                            <div class="tab-content" id="faq">
+                                <div class="faq-item">
+                                    <div class="faq-question">What Excel formats are supported?<span>+</span></div>
+                                    <div class="faq-answer">We support both modern XLSX format (Excel 2007+) and legacy XLS format (Excel 97-2003).</div>
+                                </div>
+
+                                <div class="faq-item">
+                                    <div class="faq-question">Is there a file size limit?<span>+</span></div>
+                                    <div class="faq-answer">The current limit is 10MB per file. For larger files, consider simplifying your workbook.</div>
+                                </div>
+
+                                <div class="faq-item">
+                                    <div class="faq-question">How does the VLOOKUP work?<span>+</span></div>
+                                    <div class="faq-answer">The tool matches values from your main file to the lookup file and returns the specified column's data, just like Excel's VLOOKUP function.</div>
+                                </div>
+
+                                <div class="faq-item">
+                                    <div class="faq-question">What if my data doesn't match exactly?<span>+</span></div>
+                                    <div class="faq-answer">Uncheck "Exact Match" for approximate matching, but exact matching is recommended for most cases.</div>
+                                </div>
+                            </div>
+
+                            <div class="tab-content" id="resources">
+                                <p>Learn more about VLOOKUP:</p>
+                                <a href="https://www.youtube.com/watch?v=xxxxxx" class="video-link" target="_blank">
+                                    <span class="video-icon">?</span> VLOOKUP Tutorial
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="slogan">Automate Excel VLOOKUPs between files with ease.</p>
+                <p class="credit">@ 2025 Designed by XL-Factor</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include SheetJS for Excel manipulation -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // FAQ functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.classList.contains('show');
+
+                // Close all answers first
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('show');
+                    ans.previousElementSibling.querySelector('span').textContent = '+';
+                });
+
+                // Toggle current answer if it wasn't open
+                if (!isOpen) {
+                    answer.classList.add('show');
+                    question.querySelector('span').textContent = '-';
+                }
+            });
+        });
+
+        // DOM Elements for VLOOKUP Tool
+        const mainFileInput = document.getElementById('mainFileInput');
+        const lookupFileInput = document.getElementById('lookupFileInput');
+        const mainFileInfo = document.getElementById('mainFileInfo');
+        const lookupFileInfo = document.getElementById('lookupFileInfo');
+        const mainFileList = document.getElementById('mainFileList');
+        const lookupFileList = document.getElementById('lookupFileList');
+        const processBtn = document.getElementById('processBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const optionsBtn = document.getElementById('optionsBtn');
+        const vlookupOptions = document.getElementById('vlookupOptions');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+
+        // Sheet and column selectors
+        const mainSheetSelect = document.getElementById('mainSheetSelect');
+        const lookupSheetSelect = document.getElementById('lookupSheetSelect');
+        const lookupKeySelect = document.getElementById('lookupKeySelect');
+        const lookupRangeKeySelect = document.getElementById('lookupRangeKeySelect');
+        const valueColumnSelect = document.getElementById('valueColumnSelect');
+        const resultColumnName = document.getElementById('resultColumnName');
+        const exactMatch = document.getElementById('exactMatch');
+
+        // State
+        let mainFile = null;
+        let lookupFile = null;
+        let mainWorkbook = null;
+        let lookupWorkbook = null;
+        let resultWorkbook = null;
+
+        // Event Listeners
+        mainFileInput.addEventListener('change', handleMainFileSelect);
+        lookupFileInput.addEventListener('change', handleLookupFileSelect);
+        optionsBtn.addEventListener('click', toggleVlookupOptions);
+        processBtn.addEventListener('click', processVlookup);
+        downloadBtn.addEventListener('click', downloadResultFile);
+        resetBtn.addEventListener('click', resetVlookupTool);
+        mainSheetSelect.addEventListener('change', updateMainSheetColumns);
+        lookupSheetSelect.addEventListener('change', updateLookupSheetColumns);
+
+        // Functions
+        function handleMainFileSelect(e) {
+            if (e.target.files.length > 0) {
+                mainFile = e.target.files[0];
+                updateFileList(mainFile, mainFileInfo, mainFileList);
+                loadWorkbook(mainFile, 'main');
+                downloadBtn.disabled = true;
+            }
+        }
+
+        function handleLookupFileSelect(e) {
+            if (e.target.files.length > 0) {
+                lookupFile = e.target.files[0];
+                updateFileList(lookupFile, lookupFileInfo, lookupFileList);
+                loadWorkbook(lookupFile, 'lookup');
+                downloadBtn.disabled = true;
+            }
+        }
+
+        function updateFileList(file, infoElement, listElement) {
+            listElement.innerHTML = '';
+            if (!file) {
+                infoElement.textContent = 'No file selected';
+                return;
+            }
+
+            infoElement.textContent = `Selected file: ${file.name}`;
+
+            const fileItem = document.createElement('div');
+            fileItem.className = 'file-item';
+            fileItem.innerHTML = `
+                <span>${file.name}</span>
+                <span>${(file.size / 1024).toFixed(2)} KB</span>
+            `;
+            listElement.appendChild(fileItem);
+        }
+
+        async function loadWorkbook(file, type) {
+            progressContainer.style.display = 'block';
+            progressBar.style.width = '0%';
+
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                progressBar.style.width = '30%';
+
+                const data = new Uint8Array(arrayBuffer);
+                const workbook = XLSX.read(data, { type: 'array' });
+                progressBar.style.width = '60%';
+
+                if (type === 'main') {
+                    mainWorkbook = workbook;
+                    populateSheetSelect(mainSheetSelect, workbook);
+                } else {
+                    lookupWorkbook = workbook;
+                    populateSheetSelect(lookupSheetSelect, workbook);
+                }
+
+                progressBar.style.width = '100%';
+                setTimeout(() => {
+                    progressContainer.style.display = 'none';
+                    progressBar.style.width = '0%';
+                }, 500);
+
+            } catch (error) {
+                console.error('Error loading workbook:', error);
+                alert(`Error loading ${type} file: ${error.message}`);
+                progressContainer.style.display = 'none';
+                progressBar.style.width = '0%';
+            }
+        }
+
+        function populateSheetSelect(selectElement, workbook) {
+            selectElement.innerHTML = '';
+
+            workbook.SheetNames.forEach(sheetName => {
+                const option = document.createElement('option');
+                option.value = sheetName;
+                option.textContent = sheetName;
+                selectElement.appendChild(option);
+            });
+
+            // Trigger change to populate columns
+            if (workbook.SheetNames.length > 0) {
+                selectElement.dispatchEvent(new Event('change'));
+            }
+        }
+
+        function updateMainSheetColumns() {
+            if (!mainWorkbook) return;
+
+            const sheetName = mainSheetSelect.value;
+            const worksheet = mainWorkbook.Sheets[sheetName];
+            const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+            populateColumnSelect(lookupKeySelect, jsonData[0]);
+        }
+
+        function updateLookupSheetColumns() {
+            if (!lookupWorkbook) return;
+
+            const sheetName = lookupSheetSelect.value;
+            const worksheet = lookupWorkbook.Sheets[sheetName];
+            const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+            populateColumnSelect(lookupRangeKeySelect, jsonData[0]);
+            populateColumnSelect(valueColumnSelect, jsonData[0]);
+        }
+
+        function populateColumnSelect(selectElement, headers) {
+            selectElement.innerHTML = '';
+
+            if (!headers || headers.length === 0) return;
+
+            headers.forEach((header, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = header || `Column ${index + 1}`;
+                selectElement.appendChild(option);
+            });
+        }
+
+        function toggleVlookupOptions() {
+            vlookupOptions.classList.toggle('active');
+            optionsBtn.textContent = vlookupOptions.classList.contains('active')
+                ? 'Hide Options'
+                : 'VLOOKUP Options';
+        }
+
+        async function processVlookup() {
+		    if (!mainWorkbook || !lookupWorkbook) {
+		        alert('Please upload both main and lookup files first.');
+		        return;
+		    }
+
+		    const mainSheetName = mainSheetSelect.value;
+		    const lookupSheetName = lookupSheetSelect.value;
+		    const lookupKeyCol = parseInt(lookupKeySelect.value);
+		    const lookupRangeKeyCol = parseInt(lookupRangeKeySelect.value);
+		    const selectedOptions = Array.from(valueColumnSelect.selectedOptions);
+		    const valueCols = selectedOptions.map(opt => parseInt(opt.value));
+		    const newColBaseName = resultColumnName.value.trim() || 'VLOOKUP_Result';
+		    const isExactMatch = exactMatch.checked;
+
+		    if (isNaN(lookupKeyCol) || isNaN(lookupRangeKeyCol) || valueCols.length === 0) {
+		        alert('Please select all required columns.');
+		        return;
+		    }
+
+		    progressContainer.style.display = 'block';
+		    progressBar.style.width = '0%';
+		    processBtn.disabled = true;
+		    processBtn.classList.add('loading');
+
+		    try {
+		        const mainArrayBuffer = await mainFile.arrayBuffer();
+		        const mainData = new Uint8Array(mainArrayBuffer);
+		        resultWorkbook = XLSX.read(mainData, { type: 'array' });
+		        progressBar.style.width = '20%';
+
+		        const mainWorksheet = resultWorkbook.Sheets[mainSheetName];
+		        const lookupWorksheet = lookupWorkbook.Sheets[lookupSheetName];
+		        progressBar.style.width = '30%';
+
+		        const mainJson = XLSX.utils.sheet_to_json(mainWorksheet, { header: 1 });
+		        const lookupJson = XLSX.utils.sheet_to_json(lookupWorksheet, { header: 1 });
+		        progressBar.style.width = '50%';
+
+		        // Determine where to insert new columns
+		        let resultColumnStartIndex = mainJson[0].length;
+
+		        // Add headers for new columns
+		        valueCols.forEach((_, idx) => {
+		            mainJson[0][resultColumnStartIndex + idx] = valueCols.length === 1 ? newColBaseName : `${newColBaseName}_${idx + 1}`;
+		        });
+
+		        // Create a lookup map
+		        const lookupMap = new Map();
+		        for (let i = 1; i < lookupJson.length; i++) {
+		            const row = lookupJson[i];
+		            if (row[lookupRangeKeyCol] !== undefined) {
+		                lookupMap.set(row[lookupRangeKeyCol], row);
+		            }
+		        }
+		        progressBar.style.width = '70%';
+
+		        // Apply VLOOKUP for each selected column
+		        for (let i = 1; i < mainJson.length; i++) {
+		            const row = mainJson[i];
+		            const lookupValue = row[lookupKeyCol];
+		            const matchedRow = lookupMap.get(lookupValue);
+
+		            if (matchedRow) {
+		                valueCols.forEach((colIdx, j) => {
+		                    row[resultColumnStartIndex + j] = matchedRow[colIdx] !== undefined ? matchedRow[colIdx] : '#N/A';
+		                });
+		            } else {
+		                valueCols.forEach((_, j) => {
+		                    row[resultColumnStartIndex + j] = '#N/A';
+		                });
+		            }
+		        }
+		        progressBar.style.width = '90%';
+
+		        const newWorksheet = XLSX.utils.aoa_to_sheet(mainJson);
+		        resultWorkbook.Sheets[mainSheetName] = newWorksheet;
+		        progressBar.style.width = '100%';
+
+		        downloadBtn.disabled = false;
+		        alert('VLOOKUP processing complete! Click "Download Result File" to save your file.');
+
+		    } catch (error) {
+		        console.error('VLOOKUP processing error:', error);
+		        alert(`Error processing VLOOKUP: ${error.message}`);
+		    } finally {
+		        processBtn.disabled = false;
+		        processBtn.classList.remove('loading');
+		        setTimeout(() => {
+		            progressContainer.style.display = 'none';
+		            progressBar.style.width = '0%';
+		        }, 500);
+		    }
+		}
+
+
+        function downloadResultFile() {
+            if (!resultWorkbook) return;
+
+            try {
+                const wbout = XLSX.write(resultWorkbook, { bookType: 'xlsx', type: 'array' });
+                const blob = new Blob([wbout], { type: 'application/octet-stream' });
+                const filename = mainFile.name.replace(/\.[^/.]+$/, '') + '-with-vlookup.xlsx';
+
+                saveAs(blob, filename);
+            } catch (error) {
+                console.error('Download error:', error);
+                alert(`Error downloading file: ${error.message}`);
+            }
+        }
+
+        function resetVlookupTool() {
+            mainFileInput.value = '';
+            lookupFileInput.value = '';
+            mainFile = null;
+            lookupFile = null;
+            mainWorkbook = null;
+            lookupWorkbook = null;
+            resultWorkbook = null;
+            mainFileInfo.textContent = 'No file selected';
+            lookupFileInfo.textContent = 'No file selected';
+            mainFileList.innerHTML = '';
+            lookupFileList.innerHTML = '';
+            downloadBtn.disabled = true;
+            progressContainer.style.display = 'none';
+            progressBar.style.width = '0%';
+	                vlookupOptions.classList.remove('active');
+	                optionsBtn.textContent = 'VLOOKUP Options';
+
+	                // Clear all select options
+	                mainSheetSelect.innerHTML = '';
+	                lookupSheetSelect.innerHTML = '';
+	                lookupKeySelect.innerHTML = '';
+	                lookupRangeKeySelect.innerHTML = '';
+	                valueColumnSelect.innerHTML = '';
+	                resultColumnName.value = '';
+	                exactMatch.checked = true;
+	            }
+
+	            // Scroll Reveal Animation
+	            function reveal() {
+	                const reveals = document.querySelectorAll('.reveal');
+
+	                for (let i = 0; i < reveals.length; i++) {
+	                    const windowHeight = window.innerHeight;
+	                    const revealTop = reveals[i].getBoundingClientRect().top;
+	                    const revealPoint = 150;
+
+	                    if (revealTop < windowHeight - revealPoint) {
+	                        reveals[i].classList.add('active');
+	                    } else {
+	                        reveals[i].classList.remove('active');
+	                    }
+	                }
+	            }
+
+	            window.addEventListener('scroll', reveal);
+	            window.addEventListener('load', reveal);
+
+	            // AdMob Script (Placeholder - Replace with your actual AdMob code)
+	            document.addEventListener('DOMContentLoaded', function() {
+	                // AdMob initialization would go here
+	                console.log('AdMob would be initialized here');
+	            });
+	        </script>
+	    </body>
+</html>
