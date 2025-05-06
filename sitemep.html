@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="XL-Factor Sitemap - Explore all our Excel tools, templates, and resources in one place. Easy navigation for users and search engines.">
+    <meta name="keywords" content="Excel tools sitemap, XL-Factor site structure, Excel resources directory">
+    <title>Sitemap | XL-Factor - Smart Excel Tools</title>
+    <link rel="icon" type="image/ico" sizes="96x96" href="ImageData/favicon.ico">
+    <style>
+        /* Base styles matching main site */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation - Same as main site */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links a.active {
+            background-color: #ff9800;
+        }
+
+        .nav-links a.active:hover {
+            background-color: #e68900;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Sitemap Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .sitemap-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #ff9800;
+        }
+
+        .sitemap-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: #ddd;
+        }
+
+        .sitemap-category {
+            margin-bottom: 2.5rem;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: #ff9800;
+            margin-bottom: 1rem;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sitemap-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .sitemap-link {
+            display: block;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+
+        .sitemap-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .sitemap-link i {
+            margin-right: 10px;
+            color: #ff9800;
+            width: 20px;
+            text-align: center;
+        }
+
+        .tool-features {
+            margin-top: 0.5rem;
+            padding-left: 0;
+            font-size: 0.9rem;
+            color: #ccc;
+            display: block;
+        }
+
+        .tool-features a {
+            color: #ffcc80;
+            text-decoration: none;
+            margin-right: 1rem;
+            display: block;
+            padding: 0.3rem 0;
+        }
+
+        .tool-features a:hover {
+            text-decoration: underline;
+        }
+
+        /* SEO Content Section */
+        .seo-content {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .seo-content h2 {
+            color: #ff9800;
+            margin-top: 0;
+        }
+
+        .seo-content p {
+            color: #ddd;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer - Same as main site */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slogan {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .credit {
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .nav-links a {
+                width: 80%;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .sitemap-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">XL-Factor</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="sitemap-section">
+                <h1 class="section-title">Website Sitemap</h1>
+                <div class="sitemap-intro">
+                    <p>Explore all the resources available on XL-Factor. This sitemap provides a complete overview of our tools, templates, and information pages to help you navigate our site effectively.</p>
+                </div>
+
+                <!-- Main Pages -->
+                <div class="sitemap-category">
+                    <h2 class="category-title">Main Pages</h2>
+                    <div class="sitemap-links">
+                        <a href="index.html" class="sitemap-link">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                        <a href="about-us.html" class="sitemap-link">
+                            <i class="fas fa-info-circle"></i> About Us
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Legal Pages -->
+                <div class="sitemap-category">
+                    <h2 class="category-title">Legal Pages</h2>
+                    <div class="sitemap-links">
+                        <a href="disclaimer.html" class="sitemap-link">
+                            <i class="fas fa-balance-scale"></i> Disclaimer
+                        </a>
+                        <a href="privacy-policy.html" class="sitemap-link">
+                            <i class="fas fa-user-shield"></i> Privacy Policy
+                        </a>
+                        <a href="terms-of-service.html" class="sitemap-link">
+                            <i class="fas fa-file-contract"></i> Terms of Service
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Page -->
+                <div class="sitemap-category">
+                    <h2 class="category-title">Contact</h2>
+                    <div class="sitemap-links">
+                        <a href="contact-us.html" class="sitemap-link">
+                            <i class="fas fa-envelope"></i> Contact Us
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tools Categories -->
+                <div class="sitemap-category">
+                    <h2 class="category-title">Excel File Converters</h2>
+                    <div class="sitemap-links">
+                        <div>
+                            <a href="excel-to-csv.html" class="sitemap-link">
+                                <i class="fas fa-file-csv"></i> Excel to CSV
+                            </a>
+                            <div class="tool-features">
+                                <a href="excel-to-csv.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="excel-to-pdf.html" class="sitemap-link">
+                                <i class="fas fa-file-pdf"></i> Excel to PDF
+                            </a>
+                            <div class="tool-features">
+                                <a href="excel-to-pdf.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="excel-to-json.html" class="sitemap-link">
+                                <i class="fas fa-file-code"></i> Excel to JSON
+                            </a>
+                            <div class="tool-features">
+                                <a href="excel-to-json.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="csv-to-excel.html" class="sitemap-link">
+                                <i class="fas fa-file-excel"></i> CSV to Excel
+                            </a>
+                            <div class="tool-features">
+                                <a href="csv-to-excel.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="pdf-to-excel.html" class="sitemap-link">
+                                <i class="fas fa-file-excel"></i> PDF to Excel
+                            </a>
+                            <div class="tool-features">
+                                <a href="pdf-to-excel.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="json-to-excel.html" class="sitemap-link">
+                                <i class="fas fa-file-excel"></i> JSON to Excel
+                            </a>
+                            <div class="tool-features">
+                                <a href="json-to-excel.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sitemap-category">
+                    <h2 class="category-title">Split & Merge Tools</h2>
+                    <div class="sitemap-links">
+                        <div>
+                            <a href="excel-merge-master.html" class="sitemap-link">
+                                <i class="fas fa-object-group"></i> Excel Merge Master
+                            </a>
+                            <div class="tool-features">
+                                <a href="excel-merge-master.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="multi-excel-sheets-into-one.html" class="sitemap-link">
+                                <i class="fas fa-layer-group"></i> Multi Excel Sheets into One
+                            </a>
+                            <div class="tool-features">
+                                <a href="multi-excel-sheets-into-one.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="multi-excel-to-sheet-converter.html" class="sitemap-link">
+                                <i class="fas fa-file-export"></i> Multi-Excel to Sheet Converter
+                            </a>
+                            <div class="tool-features">
+                                <a href="multi-excel-to-sheet-converter.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="sheets-to-excel-files-converter.html" class="sitemap-link">
+                                <i class="fas fa-file-import"></i> Sheets to Excel Files Converter
+                            </a>
+                            <div class="tool-features">
+                                <a href="sheets-to-excel-files-converter.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sitemap-category">
+                    <h2 class="category-title">Magical Calculator</h2>
+                    <div class="sitemap-links">
+                        <div>
+                            <a href="age-calculator.html" class="sitemap-link">
+                                <i class="fas fa-birthday-cake"></i> AGE Calculator
+                            </a>
+                            <div class="tool-features">
+                                <a href="age-calculator.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="standard-calculator.html" class="sitemap-link">
+                                <i class="fas fa-calculator"></i> Standard Calculator
+                            </a>
+                            <div class="tool-features">
+                                <a href="standard-calculator.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="scientific-calculator.html" class="sitemap-link">
+                                <i class="fas fa-square-root-alt"></i> Scientific Calculator
+                            </a>
+                            <div class="tool-features">
+                                <a href="scientific-calculator.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="universal-converter.html" class="sitemap-link">
+                                <i class="fas fa-exchange-alt"></i> Universal Converter
+                            </a>
+                            <div class="tool-features">
+                                <a href="universal-converter.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sitemap-category">
+                    <h2 class="category-title">XL-Pre-designed Templates</h2>
+                    <div class="sitemap-links">
+                        <div>
+                            <a href="premium-excel-calendar.html" class="sitemap-link">
+                                <i class="fas fa-calendar-alt"></i> Premium Excel Calendar
+                            </a>
+                        </div>
+                        <div>
+                            <a href="professional-planner.html" class="sitemap-link">
+                                <i class="fas fa-clipboard-list"></i> Professional Planner
+                            </a>
+                        </div>
+                        <div>
+                            <a href="professional-to-do-list.html" class="sitemap-link">
+                                <i class="fas fa-tasks"></i> Professional To-Do List
+                            </a>
+                        </div>
+                        <div>
+                            <a href="smart-checklist.html" class="sitemap-link">
+                                <i class="fas fa-check-square"></i> Smart Checklist
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sitemap-category">
+                    <h2 class="category-title">XL-Master Formulas</h2>
+                    <div class="sitemap-links">
+                        <div>
+                            <a href="v-lookup-master.html" class="sitemap-link">
+                                <i class="fas fa-search"></i> V-Lookup Master
+                            </a>
+                            <div class="tool-features">
+                                <a href="v-lookup-master.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="h-lookup-master.html" class="sitemap-link">
+                                <i class="fas fa-search-plus"></i> H-Lookup Master
+                            </a>
+                            <div class="tool-features">
+                                <a href="h-lookup-master.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="image-v-lookup.html" class="sitemap-link">
+                                <i class="fas fa-image"></i> Image V-Lookup
+                            </a>
+                            <div class="tool-features">
+                                <a href="image-v-lookup.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="image-h-lookup.html" class="sitemap-link">
+                                <i class="fas fa-images"></i> Image H-Lookup
+                            </a>
+                            <div class="tool-features">
+                                <a href="image-h-lookup.html#video">Video Tutorial</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEO Content Section -->
+                <div class="seo-content">
+                    <h2>About XL-Factor Tools</h2>
+                    <p>XL-Factor provides a comprehensive suite of Excel tools designed to enhance productivity and simplify complex spreadsheet tasks. Our collection includes powerful converters, merge/split utilities, specialized calculators, professional templates, and advanced formula implementations.</p>
+
+                    <h2>Why Use Our Excel Tools?</h2>
+                    <p>All XL-Factor tools come with detailed instructions, FAQ sections, and video tutorials to ensure you can use them effectively. Whether you're converting file formats, merging multiple spreadsheets, calculating complex formulas, or using our professionally designed templates, we provide all the resources you need for success.</p>
+
+                    <h2>Easy Navigation</h2>
+                    <p>This sitemap helps both users and search engines understand the structure of our website and find all available resources. Bookmark this page for quick access to any tool or information you need.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="slogan">Transform your Excel experience with our powerful, free tools and templates.</p>
+                <p class="credit">© 2025 XL-Factor | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveals[i].getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+    </script>
+</body>
+</html>
