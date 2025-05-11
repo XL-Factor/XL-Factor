@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- OpenGraph Meta Tags -->
 <meta property="og:title" content="About XL-Factor | Free Smart Excel Tools That Save Time" />
-<meta property="og:description" content="Discover XL-Factor – a game-changing platform offering fast, intelligent, and 100% free tools to convert, process, and automate your Excel files. Built for productivity, powered by AI." />
+<meta property="og:description" content="Discover XL-Factor â€“ a game-changing platform offering fast, intelligent, and 100% free tools to convert, process, and automate your Excel files. Built for productivity, powered by AI." />
 <meta property="og:image" content="https://www.xl-factor.com/ImageData/AboutUs_Img.jpg" />
 <meta property="og:url" content="https://www.xl-factor.com/about-us.html" />
 <meta property="og:type" content="website" />
@@ -14,7 +14,7 @@
 <!-- Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="About XL-Factor | Smart Excel Tools That Work for You" />
-<meta name="twitter:description" content="Built for speed and simplicity, XL-Factor is your go-to hub for powerful Excel processing tools – always free, always efficient." />
+<meta name="twitter:description" content="Built for speed and simplicity, XL-Factor is your go-to hub for powerful Excel processing tools â€“ always free, always efficient." />
 <meta name="twitter:image" content="https://www.xl-factor.com/ImageData/AboutUs_Img.jpg" />
 <meta name="twitter:url" content="https://www.xl-factor.com/about-us.html" />
     <!-- Additional SEO Meta Tags -->
@@ -149,6 +149,8 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            width: 100%;
         }
 
         .container {
@@ -156,6 +158,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            box-sizing: border-box; /* Include padding in width calculation */
         }
 
         /* Header & Navigation */
@@ -166,6 +169,7 @@
             top: 0;
             z-index: 100;
             backdrop-filter: blur(5px);
+            width: 100%;
         }
 
         nav {
@@ -193,6 +197,8 @@
         .nav-links {
             display: flex;
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links li {
@@ -229,11 +235,14 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 10px;
             border-radius: 5px;
+            border: none;
         }
 
         /* About Us Main Content */
         main {
             padding: 3rem 0;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .about-section {
@@ -242,6 +251,8 @@
             padding: 3rem 2rem;
             margin-bottom: 3rem;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .section-title {
@@ -434,6 +445,8 @@
             text-align: center;
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
             margin-top: 3rem;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .footer-content {
@@ -477,11 +490,15 @@
 
             .nav-links li {
                 margin: 1rem 0;
+                width: 100%;
+                text-align: center;
             }
 
             .nav-links a {
                 width: 80%;
                 text-align: center;
+                display: block;
+                margin: 0 auto;
             }
 
             .hamburger {
@@ -494,6 +511,19 @@
 
             .section-title {
                 font-size: 2rem;
+            }
+
+            .about-section {
+                padding: 2rem 1rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .member {
+                width: 100%;
+                max-width: 250px;
             }
         }
 
@@ -575,17 +605,17 @@
                 <h2 class="section-title">Why Use XL-Factor?</h2>
                 <div class="features">
                     <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
+                        <div class="feature-icon">âš¡</div>
                         <h3>Lightning Fast</h3>
                         <p>Convert and process Excel files in seconds, not hours. Our optimized algorithms handle even large datasets with ease.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🆓</div>
+                        <div class="feature-icon">ðŸ†“</div>
                         <h3>Free Forever</h3>
                         <p>No hidden costs or premium paywalls. We believe powerful tools should be accessible to everyone.</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🤖</div>
+                        <div class="feature-icon">ðŸ¤–</div>
                         <h3>AI-Powered</h3>
                         <p>Smart tools that learn from your usage patterns to provide increasingly accurate and helpful suggestions.</p>
                     </div>
@@ -619,7 +649,7 @@
         <div class="container">
             <div class="footer-content">
                 <p class="slogan">Simplify your Excel workflows with high-speed tools made for effortless data handling.</p>
-                <p class="credit">© 2025 Designed by XL-Factor</p>
+                <p class="credit">Â© 2025 Designed by XL-Factor</p>
             </div>
         </div>
     </footer>
