@@ -144,6 +144,7 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         .container {
@@ -151,6 +152,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            box-sizing: border-box; /* Include padding in width calculation */
         }
 
         /* Header & Navigation */
@@ -161,6 +163,7 @@
             top: 0;
             z-index: 100;
             backdrop-filter: blur(5px);
+            width: 100%;
         }
 
         nav {
@@ -188,6 +191,8 @@
         .nav-links {
             display: flex;
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links li {
@@ -224,11 +229,15 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 10px;
             border-radius: 5px;
+            border: none;
+            margin: 0;
         }
 
         /* Main Content */
         main {
             padding: 3rem 0;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .hero {
@@ -243,12 +252,16 @@
             border-radius: 10px;
             padding: 2rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 0;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .hero-text, .hero-image {
             flex: 1;
             min-width: 300px;
             padding: 1rem;
+            box-sizing: border-box;
         }
 
         .hero-text h1 {
@@ -263,6 +276,12 @@
             color: #ddd;
         }
 
+        .button-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
         .cta-button {
             display: inline-block;
             background-color: #ff9800;
@@ -274,10 +293,29 @@
             transition: background-color 0.3s;
             border: none;
             cursor: pointer;
+            text-align: center;
+        }
+
+        .article-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
         }
 
         .cta-button:hover {
             background-color: #e68900;
+        }
+
+        .article-button:hover {
+            background-color: #3e8e41;
         }
 
         .hero-image img {
@@ -286,6 +324,7 @@
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s;
+            max-width: 100%;
         }
 
         .hero-image img:hover {
@@ -298,6 +337,8 @@
             padding: 2rem 0;
             text-align: center;
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .footer-content {
@@ -341,11 +382,15 @@
 
             .nav-links li {
                 margin: 1rem 0;
+                width: 100%;
+                text-align: center;
             }
 
             .nav-links a {
                 width: 80%;
                 text-align: center;
+                display: block;
+                margin: 0 auto;
             }
 
             .hamburger {
@@ -354,14 +399,20 @@
 
             .hero-content {
                 flex-direction: column;
+                padding: 1.5rem;
             }
 
             .hero-text, .hero-image {
                 text-align: center;
+                padding: 0.5rem;
             }
 
             .hero-text h1 {
                 font-size: 2rem;
+            }
+
+            .button-container {
+                justify-content: center;
             }
         }
 
@@ -426,7 +477,10 @@
                     <div class="hero-text reveal">
                         <h1>Excel Data Made Simple, Powerful, and Instant.</h1>
                         <p>Fast, efficient Excel processing tools that turn complex spreadsheet tasks into a breeze. Convert, clean, and transform data in just moments.</p>
-                        <a href="tools.html" class="cta-button">Explore Tools</a>
+                        <div class="button-container">
+                            <a href="tools.html" class="cta-button">Explore Tools</a>
+                            <a href="#" class="article-button">Articles</a>
+                        </div>
                     </div>
                     <div class="hero-image reveal">
                         <img src="ImageData/Xl-Factor_Img.jpg" alt="Data Conversion Tools">
