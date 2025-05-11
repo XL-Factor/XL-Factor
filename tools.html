@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Primary Meta Tags -->
 <title>XL-Factor: All-in-One Excel Tools Hub | Convert, Automate, and Optimize Your Spreadsheets</title>
 <meta name="title" content="XL-Factor: All-in-One Excel Tools Hub | Convert, Automate, and Optimize Your Spreadsheets">
@@ -26,7 +26,6 @@
 <meta name="robots" content="index, follow">
 <meta name="keywords" content="Excel tools, convert Excel, automate spreadsheet, PDF to Excel, Excel optimizer, data tools, Excel utility, online Excel tools, free Excel tools">
 <meta name="author" content="XL-Factor">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Additional SEO Meta Tags -->
 <meta name="author" content="XL-Factor">
@@ -289,6 +288,8 @@
             padding: 0;
             line-height: 1.6;
             min-height: 100vh;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         .container {
@@ -296,6 +297,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            box-sizing: border-box;
         }
 
         /* Header */
@@ -306,6 +308,7 @@
             top: 0;
             z-index: 100;
             backdrop-filter: blur(5px);
+            width: 100%;
         }
 
         nav {
@@ -333,6 +336,8 @@
         .nav-links {
             display: flex;
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links li {
@@ -369,11 +374,14 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 10px;
             border-radius: 5px;
+            border: none;
         }
 
         /* Main Content */
         main {
             padding: 1.5rem 0;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .tool-section {
@@ -382,6 +390,8 @@
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .section-title {
@@ -473,6 +483,8 @@
             text-align: center;
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
             margin-top: 1.5rem;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .footer-content {
@@ -524,11 +536,15 @@
 
             .nav-links li {
                 margin: 1rem 0;
+                width: 100%;
+                text-align: center;
             }
 
             .nav-links a {
                 width: 80%;
                 text-align: center;
+                display: block;
+                margin: 0 auto;
             }
 
             .hamburger {
@@ -543,6 +559,10 @@
 
             .tool-card {
                 height: 140px;
+            }
+            
+            .tool-section {
+                padding: 1rem;
             }
         }
 
