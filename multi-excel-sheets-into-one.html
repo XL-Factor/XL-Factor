@@ -8,7 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.xl-factor.com/multi-excel-sheets-into-one.html">
 <meta property="og:title" content="Merge Multiple Excel Sheets into One | Free Online Tool | XL-Factor">
-<meta property="og:description" content="Combine all sheets from an Excel workbook into one spreadsheet effortlessly. No sign-up, no watermarks—just clean results with XL-Factor.">
+<meta property="og:description" content="Combine all sheets from an Excel workbook into one spreadsheet effortlessly. No sign-up, no watermarksâ€”just clean results with XL-Factor.">
 <meta property="og:image" content="https://www.xl-factor.com/ImageData/multi-excel-sheets-into-one.jpg">
 <meta property="og:image:alt" content="Online Tool to Merge Excel Sheets - XL-Factor">
 <meta property="og:site_name" content="XL-Factor">
@@ -41,7 +41,7 @@
       "@id": "https://www.xl-factor.com/multi-excel-sheets-into-one.html#webpage",
       "url": "https://www.xl-factor.com/multi-excel-sheets-into-one.html",
       "name": "Merge Multiple Excel Sheets into One | Free Online Tool | XL-Factor",
-      "description": "Combine all sheets from an Excel workbook into one spreadsheet effortlessly. No sign-up, no watermarks—just clean results with XL-Factor.",
+      "description": "Combine all sheets from an Excel workbook into one spreadsheet effortlessly. No sign-up, no watermarksâ€”just clean results with XL-Factor.",
       "isPartOf": {
         "@id": "https://www.xl-factor.com/#website"
       },
@@ -178,7 +178,18 @@
 </script>
 
     <style>
-        /* Base styles matching previous pages */
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(to right, #6a11cb, #2575fc);
@@ -186,16 +197,15 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            overflow-x: hidden; /* Added to prevent horizontal scrolling */
-            width: 100%; /* Ensure body takes full width */
+            position: relative;
+            min-height: 100vh;
         }
 
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-            box-sizing: border-box; /* Added to include padding in width calculation */
+            padding: 0 15px;
         }
 
         /* Header & Navigation */
@@ -206,7 +216,7 @@
             top: 0;
             z-index: 100;
             backdrop-filter: blur(5px);
-            width: 100%; /* Ensure header takes full width */
+            width: 100%;
         }
 
         nav {
@@ -234,8 +244,6 @@
         .nav-links {
             display: flex;
             list-style: none;
-            margin: 0;
-            padding: 0;
         }
 
         .nav-links li {
@@ -272,28 +280,25 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 10px;
             border-radius: 5px;
-            border: none;
         }
 
         /* Main Content */
         main {
-            padding: 3rem 0;
-            width: 100%; /* Ensure main takes full width */
-            box-sizing: border-box;
+            padding: 2rem 0;
+            width: 100%;
         }
 
         .tool-section {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: 3rem 2rem;
-            margin-bottom: 3rem;
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             width: 100%;
-            box-sizing: border-box;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1.5rem;
             color: white;
             text-align: center;
@@ -316,8 +321,9 @@
         .converter-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: flex-start;
+            width: 100%;
         }
 
         .converter-box {
@@ -325,20 +331,19 @@
             min-width: 300px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: 2rem;
+            padding: 1.5rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            box-sizing: border-box;
             width: 100%;
         }
 
         .file-upload {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .file-upload-label {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 12px 24px;
             background: transparent;
             color: white;
             border: 2px solid white;
@@ -347,6 +352,8 @@
             font-weight: bold;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 300px;
         }
 
         .file-upload-label:hover {
@@ -377,6 +384,7 @@
             padding: 10px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 5px;
+            width: 100%;
         }
 
         .sheet-item {
@@ -384,6 +392,7 @@
             align-items: center;
             padding: 8px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
         }
 
         .sheet-item:last-child {
@@ -416,8 +425,9 @@
             display: flex;
             justify-content: center;
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             flex-wrap: wrap;
+            width: 100%;
         }
 
         .btn {
@@ -430,6 +440,8 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             background: transparent;
             color: white;
+            width: 100%;
+            max-width: 200px;
         }
 
         .btn:hover {
@@ -477,19 +489,21 @@
             min-width: 300px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: 2rem;
+            padding: 1.5rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            box-sizing: border-box;
+            width: 100%;
         }
 
         .tab-container {
             margin-top: 1rem;
+            width: 100%;
         }
 
         .tab-buttons {
             display: flex;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             margin-bottom: 1rem;
+            width: 100%;
         }
 
         .tab-btn {
@@ -500,6 +514,7 @@
             cursor: pointer;
             font-weight: bold;
             position: relative;
+            font-size: 0.9rem;
         }
 
         .tab-btn.active {
@@ -520,6 +535,7 @@
             display: none;
             padding: 10px 0;
             color: #ddd;
+            width: 100%;
         }
 
         .tab-content.active {
@@ -538,11 +554,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 0.95rem;
         }
 
         .faq-answer {
             margin-top: 0.5rem;
             display: none;
+            font-size: 0.9rem;
         }
 
         .faq-answer.show {
@@ -557,6 +575,7 @@
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
+            font-size: 0.9rem;
         }
 
         .video-link:hover {
@@ -573,32 +592,32 @@
             width: 100%;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: 20px;
-            margin: 2rem 0;
+            padding: 15px;
+            margin: 1.5rem 0;
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             overflow: hidden;
-            box-sizing: border-box;
         }
 
         .ad-placeholder {
             background: rgba(255, 255, 255, 0.2);
-            padding: 50px 20px;
+            padding: 40px 15px;
             border-radius: 5px;
             color: #ddd;
             font-style: italic;
             margin: 0 auto;
             max-width: 100%;
             box-sizing: border-box;
+            font-size: 0.9rem;
         }
 
         /* Footer */
         footer {
             background: rgba(255, 255, 255, 0.1);
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             text-align: center;
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 3rem;
+            margin-top: 2rem;
             width: 100%;
         }
 
@@ -609,7 +628,7 @@
         }
 
         .slogan {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
             color: white;
             font-weight: 500;
@@ -617,13 +636,13 @@
 
         .credit {
             color: #ddd;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            body {
-                overflow-x: hidden; /* Prevent horizontal scrolling */
+            .container {
+                padding: 0 10px;
             }
             
             .nav-links {
@@ -632,7 +651,7 @@
                 left: -100%;
                 width: 100%;
                 height: calc(100vh - 70px);
-                background: rgba(0, 0, 0, 0.9);
+                background: rgba(0, 0, 0, 0.95);
                 flex-direction: column;
                 align-items: center;
                 justify-content: flex-start;
@@ -646,16 +665,14 @@
             }
 
             .nav-links li {
-                margin: 1rem 0;
-                width: 100%;
-                text-align: center;
+                margin: 0.8rem 0;
+                width: 90%;
             }
 
             .nav-links a {
-                width: 80%;
+                width: 100%;
                 text-align: center;
-                display: block;
-                margin: 0 auto;
+                padding: 12px;
             }
 
             .hamburger {
@@ -667,7 +684,7 @@
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .action-buttons {
@@ -676,20 +693,19 @@
             }
 
             .btn {
-                width: 100%;
-                max-width: 250px;
+                max-width: 100%;
             }
             
-            .container {
-                padding: 0 15px; /* Add some padding to prevent content touching edges */
+            .file-upload-label {
+                max-width: 100%;
             }
             
             .tool-section {
-                padding: 2rem 1rem; /* Reduce padding on mobile */
+                padding: 1.5rem 0.5rem;
             }
             
             .converter-box, .help-section {
-                padding: 1.5rem; /* Reduce padding on mobile */
+                padding: 1rem;
             }
         }
 
@@ -728,11 +744,11 @@
                 <a href="#" class="logo">XL-Factor</a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-					<li><a href="about-us.html">About Us</a></li>
-					<li><a href="tools.html">Tools</a></li>
-					<li><a href="disclaimer.html">Disclaimer</a></li>
-					<li><a href="privacy-policy.html">Privacy Policy</a></li>
-					<li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
                     <li><a href="contact-us.html">Contact Us</a></li>
                 </ul>
                 <div class="hamburger">
