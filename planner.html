@@ -23,7 +23,7 @@
 <meta name="twitter:description" content="Plan with confidence using our free, customizable Excel planner. Download now and take control of your day!" />
 <meta name="twitter:image" content="https://www.xl-factor.com/ImageData/planner.jpg" />
 <meta name="twitter:url" content="https://www.xl-factor.com/planner.html" />
-    
+
     <meta name="description" content="Download XL-Factor's Professional Planner - beautifully designed, fully customizable">
     <meta name="keywords" content="Excel calendar download, free calendar templates, professional Excel tools">
     <title>Professional Planner | XL-Factor - Smart Excel Tools</title>
@@ -166,13 +166,17 @@
 </script>
 
     <style>
-        /* Base styles matching Disclaimer page */
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(to right, #6a11cb, #2575fc);
             color: white;
-            margin: 0;
-            padding: 0;
             line-height: 1.6;
             overflow-x: hidden;
             width: 100%;
@@ -182,8 +186,7 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-            box-sizing: border-box;
+            padding: 0 15px;
         }
 
         /* Header & Navigation */
@@ -202,7 +205,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
-            width: 100%;
         }
 
         .logo {
@@ -223,8 +225,6 @@
         .nav-links {
             display: flex;
             list-style: none;
-            margin: 0;
-            padding: 0;
         }
 
         .nav-links li {
@@ -267,17 +267,15 @@
         main {
             padding: 3rem 0;
             width: 100%;
-            box-sizing: border-box;
         }
 
         .download-section {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: 3rem 2rem;
+            padding: 2rem;
             margin-bottom: 3rem;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             width: 100%;
-            box-sizing: border-box;
         }
 
         .section-title {
@@ -305,13 +303,11 @@
             flex-wrap: wrap;
             gap: 2rem;
             align-items: center;
-            width: 100%;
         }
 
         .download-text {
             flex: 2;
             min-width: 300px;
-            width: 100%;
         }
 
         .download-text h2 {
@@ -331,7 +327,6 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
             margin-bottom: 2rem;
-            width: 100%;
         }
 
         .feature-item {
@@ -351,7 +346,6 @@
             min-width: 300px;
             text-align: center;
             position: relative;
-            width: 100%;
         }
 
         .download-image img {
@@ -402,7 +396,6 @@
             text-align: center;
             border: 1px dashed rgba(255, 255, 255, 0.2);
             width: 100%;
-            box-sizing: border-box;
         }
 
         .ad-title {
@@ -421,7 +414,6 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 5px;
             padding: 1rem;
-            width: 100%;
         }
 
         /* Footer */
@@ -438,7 +430,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%;
         }
 
         .slogan {
@@ -455,10 +446,15 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            body {
+            html, body {
+                width: 100%;
                 overflow-x: hidden;
             }
-            
+
+            .container {
+                padding: 0 15px;
+            }
+
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -485,7 +481,7 @@
             }
 
             .nav-links a {
-                width: 80%;
+                width: 90%;
                 text-align: center;
                 display: block;
                 margin: 0 auto;
@@ -506,13 +502,13 @@
             .section-title {
                 font-size: 2rem;
             }
-            
-            .container {
-                padding: 0 15px;
-            }
-            
+
             .download-section {
-                padding: 2rem 1rem;
+                padding: 1.5rem;
+            }
+
+            .download-text, .download-image {
+                min-width: 100%;
             }
         }
 
@@ -620,8 +616,16 @@
 
             <div class="ad-section reveal">
                 <div class="ad-content">
-                    <!-- Ad space - can be replaced with actual ad code -->
-                    <p>Advertisement space for relevant products</p>
+                    <!-- Google AdSense Ad -->
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                        data-ad-slot="YYYYYYYYYY"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div>
             </div>
         </div>
