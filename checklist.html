@@ -2,27 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Canonical URL -->
-<meta name="author" content="XL-Factor">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.xl-factor.com/checklist.html" />
+    <meta name="author" content="XL-Factor">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.xl-factor.com/checklist.html" />
 
-<!-- Open Graph Meta Tags (Facebook, LinkedIn, etc.) -->
-<meta property="og:title" content="Smart Checklist | XL-Factor - Productivity Excel Tools" />
-<meta property="og:description" content="Download XL-Factor's free, customizable Smart Checklist Excel template. Track tasks, set priorities, and stay productive with ease!" />
-<meta property="og:url" content="https://www.xl-factor.com/checklist.html" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://www.xl-factor.com/ImageData/checklist.jpg" />
-<meta property="og:site_name" content="XL-Factor" />
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="Smart Checklist | XL-Factor - Productivity Excel Tools" />
+    <meta property="og:description" content="Download XL-Factor's free, customizable Smart Checklist Excel template. Track tasks, set priorities, and stay productive with ease!" />
+    <meta property="og:url" content="https://www.xl-factor.com/checklist.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.xl-factor.com/ImageData/checklist.jpg" />
+    <meta property="og:site_name" content="XL-Factor" />
 
-<!-- Twitter Card Meta Tags (X platform) -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Smart Checklist | XL-Factor - Productivity Excel Tools" />
-<meta name="twitter:description" content="Organize better and accomplish more with our free Excel checklist template. Download now and simplify your workflow!" />
-<meta name="twitter:image" content="https://www.xl-factor.com/ImageData/checklist.jpg" />
-<meta name="twitter:url" content="https://www.xl-factor.com/checklist.html" />
+    <!-- Twitter Card Meta Tags (X platform) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Smart Checklist | XL-Factor - Productivity Excel Tools" />
+    <meta name="twitter:description" content="Organize better and accomplish more with our free Excel checklist template. Download now and simplify your workflow!" />
+    <meta name="twitter:image" content="https://www.xl-factor.com/ImageData/checklist.jpg" />
+    <meta name="twitter:url" content="https://www.xl-factor.com/checklist.html" />
 
     <meta name="description" content="Download XL-Factor's Smart Checklist - beautifully designed, fully customizable checklist templates for Excel">
     <meta name="keywords" content="Excel checklist download, free checklist templates, productivity tools, task management">
@@ -215,21 +214,27 @@
 }
 </script>
     <style>
-        /* Base styles matching Disclaimer page */
+        /* Base styles matching XL-Factor */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(to right, #6a11cb, #2575fc);
             color: white;
-            margin: 0;
-            padding: 0;
             line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         /* Header & Navigation */
@@ -240,6 +245,7 @@
             top: 0;
             z-index: 100;
             backdrop-filter: blur(5px);
+            width: 100%;
         }
 
         nav {
@@ -308,14 +314,16 @@
         /* Download Main Content */
         main {
             padding: 3rem 0;
+            width: 100%;
         }
 
         .download-section {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: 3rem 2rem;
+            padding: 2rem;
             margin-bottom: 3rem;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
         }
 
         .section-title {
@@ -435,6 +443,7 @@
             margin: 2rem 0;
             text-align: center;
             border: 1px dashed rgba(255, 255, 255, 0.2);
+            width: 100%;
         }
 
         .ad-title {
@@ -462,6 +471,7 @@
             text-align: center;
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
             margin-top: 3rem;
+            width: 100%;
         }
 
         .footer-content {
@@ -484,13 +494,22 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            html, body {
+                width: 100%;
+                overflow-x: hidden;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
             .nav-links {
                 position: fixed;
                 top: 70px;
                 left: -100%;
                 width: 100%;
                 height: calc(100vh - 70px);
-                background: rgba(0, 0, 0, 0.9);
+                background: rgba(0, 0, 0, 0.95);
                 flex-direction: column;
                 align-items: center;
                 justify-content: flex-start;
@@ -505,11 +524,15 @@
 
             .nav-links li {
                 margin: 1rem 0;
+                width: 100%;
+                text-align: center;
             }
 
             .nav-links a {
-                width: 80%;
+                width: 90%;
                 text-align: center;
+                display: block;
+                margin: 0 auto;
             }
 
             .hamburger {
@@ -526,6 +549,14 @@
 
             .section-title {
                 font-size: 2rem;
+            }
+            
+            .download-section {
+                padding: 1.5rem;
+            }
+            
+            .download-text, .download-image {
+                min-width: 100%;
             }
         }
 
