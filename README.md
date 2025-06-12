@@ -44,7 +44,7 @@ pie
     "Backend (Node.js/Python)" : 35
     "Database" : 15
     "Cloud Services" : 5
-
+</div>
 🌟 Why Choose XL-Factor?
 <div> <ul> <li><i class="fas fa-check-circle"></i> <strong>100% Free</strong> - No hidden charges, no subscriptions</li> <li><i class="fas fa-check-circle"></i> <strong>No Registration Required</strong> - Start using immediately</li> <li><i class="fas fa-check-circle"></i> <strong>Secure Processing</strong> - Files never stored on our servers</li> <li><i class="fas fa-check-circle"></i> <strong>Browser-Based</strong> - No software installation needed</li> <li><i class="fas fa-check-circle"></i> <strong>Supports Large Files</strong> - Process complex Excel workbooks</li> </ul> </div>
 🛠️ How It Works
