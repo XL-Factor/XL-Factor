@@ -56,3 +56,14 @@ pie
     "Merge Excel" : 20
     "V Lookup" : 15
     "Other Tools" : 5
+
+🌟 Why Choose XL-Factor?
+💯 100% Free: No hidden charges or premium tiers
+
+🔒 Privacy Focused: No file storage, process happens in your browser
+
+⚡ Fast Processing: Optimized algorithms for quick conversions
+
+🎯 No Registration: Use immediately without sign-up
+
+📱 Responsive Design: Works on all devices
