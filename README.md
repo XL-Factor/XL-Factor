@@ -1,69 +1,9 @@
-# XL-Factor
+<h1 align="center">Hi 👋, I'm Bharat SK</h1>
+<h3 align="center">Frontend Magician | Building modern web apps</h3>
 
-![XL-Factor Header](https://via.placeholder.com/960x300?text=XL-Factor+Excel+Tools)
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+</p>
 
-Your Ultimate Excel Conversion & Processing Hub
-
-Free, Fast, and Feature-Rich Tools for All Your Spreadsheet Needs. Simplify your data workflows with our powerful online tools.
-
-[![Visit XL-Factor](https://img.shields.io/badge/Visit-XL--Factor-4CAF50?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.xl-factor.com)
-
-## About XL-Factor
-
-XL-Factor is a revolutionary online platform dedicated to providing **absolutely free** and efficient tools for all your Excel file manipulation needs. Our mission is to empower users with robust functionalities without any cost.
-
-- **Domain:** [www.xl-factor.com](https://www.xl-factor.com)
-- **Core Function:** Seamless Excel file conversion and advanced processing.
-- **Cost:** All tools are **100% FREE!**
-
-## Our Powerful & Free Tools
-
-### Excel Conversion
-![Excel Icon](https://img.shields.io/badge/-Excel-217346?logo=microsoft-excel&logoColor=white)  
-Effortlessly convert Excel files to various formats like CSV, PDF, and JSON, and vice versa. Your data, your format.
-
-### Merge Excel
-![Merge Icon](https://img.shields.io/badge/-Merge-764ABC?logo=git&logoColor=white)  
-Combine multiple Excel files into a single, unified document quickly and accurately.
-
-### Merge Sheet
-![Sheet Icon](https://img.shields.io/badge/-Sheets-34A853?logo=google-sheets&logoColor=white)  
-Consolidate data from different sheets within an Excel workbook into one master sheet.
-
-### Split Sheet
-![Split Icon](https://img.shields.io/badge/-Split-E44D26?logo=scikit-learn&logoColor=white)  
-Divide large Excel sheets into smaller, manageable files based on specified criteria.
-
-### V Lookup
-![Search Icon](https://img.shields.io/badge/-VLookup-007ACC?logo=visual-studio-code&logoColor=white)  
-Perform fast and accurate VLOOKUP operations online without needing Excel software.
-
-### Image V Lookup
-![Image Icon](https://img.shields.io/badge/-Image-FF6B6B?logo=image&logoColor=white)  
-A unique tool to match data and images, expanding your data processing capabilities.
-
-## Built with Modern Technologies
-
-XL-Factor is powered by a robust and scalable technology stack to ensure performance and reliability.
-
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![Database](https://img.shields.io/badge/Database-4479A1?logo=postgresql&logoColor=white)
-![Cloud](https://img.shields.io/badge/Cloud-2088FF?logo=google-cloud&logoColor=white)
-
-## Tool Usage Statistics (Illustrative)
-
-Below is an illustrative chart showcasing the hypothetical usage of our popular tools. Actual data may vary.
-
-
-### Notes about the conversion:
-1. I've converted the visual elements to Markdown using badges and simple ASCII art
-2. The chart has been represented using Mermaid syntax which works in GitHub Markdown
-3. I've maintained all the key sections from the original HTML
-4. Interactive elements are represented as clickable badges/links
-5. The color scheme and organization mirrors the original design
-6. I've used placeholder images - you may want to replace these with actual screenshots
-
-The README.md is ready to use and will render nicely on GitHub or any other Markdown viewer that supports Mermaid diagrams and badges.
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://developer.android.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a> <a href="https://www.arduino.cc/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg" alt="arduino" width="40" height="40"/> </a> <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a> <a href="https://dotnet.microsoft.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" alt="dotnet" width="40" height="40"/> </a> <a href="https://www.electronjs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/electron/electron-original.svg" alt="electron" width="40" height="40"/> </a> <a href="https://flutter.dev" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="flutter" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://ifttt.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/ifttt/ifttt-ar21.svg" alt="ifttt" width="40" height="40"/> </a> <a href="https://jasmine.github.io/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/jasmine/jasmine-icon.svg" alt="jasmine" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://www.mathworks.com/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" alt="matlab" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://opencv.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/opencv/opencv-icon.svg" alt="opencv" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://vuetifyjs.com/en/" target="_blank" rel="noreferrer"> <img src="https://bestofjs.org/logos/vuetify.svg" alt="vuetify" width="40" height="40"/> </a> <a href="https://www.wxwidgets.org/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/WxWidgets.svg" alt="wx_widgets" width="40" height="40"/> </a> </p>
