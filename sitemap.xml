@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
+  <url>
+    <loc>https://www.xl-factor.com/index.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/about-us.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/disclaimer.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/privacy-policy.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/terms-of-service.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/contact-us.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/excel-to-csv-converter.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/excel-to-pdf-converter.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/excel-to-json-converter.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/csv-to-excel-converter.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/pdf-to-excel-converter.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/json-to-excel-converter.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/excel-merge-master.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/multi-excel-sheets-into-one.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/multi-excel-to-sheet-converter.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/sheets-to-excel-files-converter.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/age-calculator.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/standard-calculator.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/scientific-calculator.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/universal-converter.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/calendar.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/v-lookup.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/h-lookup.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/image-v-lookup.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+  <url>
+    <loc>https://www.xl-factor.com/image-h-lookup.html</loc>
+    <lastmod>2025-06-13T16:44:54.621Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://xl-factor.com/images/example.jpg</image:loc>
+      <image:title>Example Image</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+</urlset>
